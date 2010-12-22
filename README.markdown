@@ -1,19 +1,19 @@
-# [CssUserAgent][1] - cssua.js
+# [CssUserAgent][1] (cssua.js)
 Distributed under the terms of an [MIT-style license][2]
 
 ## Special CSS Classes...
 
-Adding the script preps the page with special CSS classes which enable targeting of browsers with varying degrees of precision.
+Adding cssua.js to the page preps the document with special CSS classes which enable targeting of browsers with varying degrees of precision.
 
-	<!-- Example classes applied to the page -->
+	<!-- example CSS classes applied to the page -->
 	<html class="ua-webkit ua-webkit-534 ua-webkit-534-10 ua-chrome ua-chrome-8 ua-chrome-8-0
 		ua-chrome-8-0-552 ua-chrome-8-0-552-224 ua-safari ua-safari-534 ua-safari-534-10">
-	...
+		...
 	</html>
 
 This makes applying slight layout differences a snap:
 
-	/* CssUserAgent lets you target specific browsers without CSS hacks */
+	/* CssUserAgent lets you target specific browsers without resorting CSS hacks */
 	.foo
 	{
 		background-image: url(foo.png);
@@ -43,9 +43,9 @@ manner that doesn't require string parsing. For example, this object is effectiv
 	   safari: "534.10"
 	};
 
-Testing for old Internet Explorer has never been easier than
+Testing for older Internet Explorer has never been easier than
 
-	if (cssua.ua.ie < 7) { /* a whole bunch of extra code here */ }
+	if (cssua.ua.ie < 8) { /* proof of Pareto principle here */ }
 
 ## No Browser Hacks...
 
@@ -56,7 +56,7 @@ number (e.g. "ie-5" includes 5.0, 5.5) or minor (e.g. "ie-5-0" includes only 5.0
 
 ## Future UserAgents...
 
-This script understands the common patterns of UserAgents enabling future user agent strings to simply
+This script understands the common structures of user agent strings enabling future user agent strings to simply
 work without changes. For example, when the early beta builds of Google Chrome were first released,
 it just worked.
 
