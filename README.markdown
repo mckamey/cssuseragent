@@ -50,9 +50,9 @@ Testing for older Internet Explorer has never been easier than
 ## No Browser Hacks...
 
 This technique also avoids *all* CSS hacks. It allows you to target the browser rendering engine
-(e.g. "webkit"), or a specific browser (e.g. "safari"). The version can be targeted at the major version
-number (e.g. "ie-5" includes 5.0, 5.5) or minor (e.g. "ie-5-0" includes only 5.0) all the way down
-(e.g. "ua-chrome-8-0-552-224") for a very specific case.
+(e.g. "ua-gecko"), or a specific browser (e.g. "ua-firefox"). The version can be targeted at the major version
+number (e.g. "ua-ie-5" includes 5.0, 5.5) or minor (e.g. "ua-ie-5-0" includes only 5.0) all the way down
+to a very specific case (e.g. "ua-chrome-8-0-552-224").
 
 ## Future UserAgents...
 
