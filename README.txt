@@ -5,8 +5,9 @@ Special CSS Classes...
 Preps the page with special CSS classes which enable targeting browsers with varying degrees of precision.
 
 	<!--Example classes applied to the page -->
-	<html class="ua-webkit ua-webkit-534 ua-webkit-534-10 ua-chrome ua-chrome-8 ua-chrome-8-0 ua-chrome-8-0-552 ua-chrome-8-0-552-224 ua-safari ua-safari-534 ua-safari-534-10">
-		…
+	<html class="ua-webkit ua-webkit-534 ua-webkit-534-10 ua-chrome ua-chrome-8 ua-chrome-8-0
+		ua-chrome-8-0-552 ua-chrome-8-0-552-224 ua-safari ua-safari-534 ua-safari-534-10">
+		...
 	</html>
 
 This makes applying slight layout differences a snap:
@@ -28,9 +29,12 @@ This makes applying slight layout differences a snap:
 
 UserAgent object...
 
-UserAgent-sniffing is something to be used sparingly, but any pragmatic developer knows it is sometimes needed. When it is, cssua.js produces as a side-effect a helper object which makes user-agent-siffing a snap.
+UserAgent-sniffing is something to be used sparingly, but any pragmatic developer knows it is
+sometimes needed. When it is, cssua.js produces as a side-effect a helper object which makes
+user-agent-siffing a snap.
 
-An object map is also built which allows you to test the user agent from your script in a simplified manner that doesn't require string parsing. For example, this object is effectively produced:
+An object map is also built which allows you to test the user agent from your script in a simplified
+manner that doesn't require string parsing. For example, this object is effectively produced:
 
 	cssua.ua = {
 	   webkit: "534.10",
@@ -44,8 +48,12 @@ Testing for old Internet Explorer has never been easier than
 
 No Browser Hacks...
 
-This technique also avoids *all* CSS hacks. It allows you to target the browser rendering engine (e.g. "webkit"), or a specific browser (e.g. "safari"). The version can be targeted at the major version number (e.g. "ie-5" includes 5.0, 5.5) or minor (e.g. "ie-5-0" includes only 5.0) all the way down (e.g. "ua-chrome-8-0-552-224") for a very specific case.
+This technique also avoids *all* CSS hacks. It allows you to target the browser rendering engine
+(e.g. "webkit"), or a specific browser (e.g. "safari"). The version can be targeted at the major version
+number (e.g. "ie-5" includes 5.0, 5.5) or minor (e.g. "ie-5-0" includes only 5.0) all the way down
+(e.g. "ua-chrome-8-0-552-224") for a very specific case.
 
 Future UserAgents...
 
-This script understands the common patterns of UserAgents enabling future user agent strings to simply work without changes. For example, when the early beta builds of Google Chrome were first released, it just worked.
+This script understands the common patterns of UserAgents enabling future user agent strings to simply
+work without changes. For example, when the early beta builds of Google Chrome were first released, it just worked.
