@@ -1,0 +1,110 @@
+/*
+	syntax.css
+
+	syntax highlighting stylesheet
+*/
+
+code
+{
+	font-family: Consolas, Courier New, Courier, Monospace;
+}
+.ua-webkit code
+{
+	font-size: 1.2em;
+}
+
+.syntax
+{
+	border: 1px solid silver;
+	background: #EEEEEE;
+	padding: 0.125em 0.5em;
+	line-height: 1.75em;
+}
+
+.example
+{
+	display: block;
+	padding: 1em;
+	margin: auto 4em;
+}
+code.example
+{
+	line-height: normal;
+}
+p.example
+{
+	padding: 0.25em;
+}
+
+/* Block */
+.syntax .indent
+{
+	padding: 0 0 0 2em;
+}
+
+/* Operator */
+.syntax .op
+{
+	color: #0000CC;
+	white-space: nowrap;
+}
+
+/* Keyword */
+.syntax .key
+{
+	color: #0000FF;
+	white-space: nowrap;
+}
+
+/* type */
+.syntax .type
+{
+	color: #2B91AF;
+	white-space: nowrap;
+}
+
+/* String Literal */
+.syntax .lit
+{
+	color: #A31515;
+}
+
+/* comments */
+.syntax .comment,
+.syntax .comment *
+{
+	color: #008000;
+}
+
+/* Code Block */
+.syntax .serv
+{
+	color: black;
+	background-color: #FFEE62;
+	padding: 0 0.125em;
+}
+
+@media print
+{
+	.syntax .op,
+	.syntax .key,
+	.syntax .lit,
+	.syntax .type,
+	.syntax .serv,
+	.syntax .comment,
+	.syntax .comment *
+	{
+		color: black;
+	}
+	
+	.syntax,
+	.syntax .serv
+	{
+		background-color: transparent;
+	}
+
+	.syntax
+	{
+		border-color: black;
+	}
+}

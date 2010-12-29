@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+<head>
+	<title>CssUserAgent (cssua.js) Integration Tests</title>
+
+	<link href="styles/main.css" rel="stylesheet" type="text/css" />
+	<link href="styles/zebra.css" rel="stylesheet" type="text/css" />
+	<link href="styles/syntax.css" rel="stylesheet" type="text/css" />
+	<link href="styles/browsers.css" rel="stylesheet" type="text/css" />
+	<link href="styles/validation.css" rel="stylesheet" type="text/css" />
+
+	<script src="../cssua.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+	<h1 class="box"><a href="../">CssUserAgent (cssua.js)</a> Integration Tests</h1>
+
+	<div class="browser-info">
+		<h4>Looks like you're using&hellip;</h4>
+		<ul class="zebra">
+		<script type="text/javascript">
+			(function() {
+				var i=0, ua = cssua.userAgent;
+				for (var key in ua) {
+					document.write("<li class=\"zebra-item");
+					if (i++ % 2) {
+						document.write(" zebra-item-alt");
+					}
+					document.write("\">");
+					document.write(key)
+					document.write(" ");
+					document.write(ua[key]);
+					document.write("</li>");
+				}
+			})()
+		</script>
+		</ul>
+
+		<h4 style="margin:2em 0 0 0;">Avoid CSS hacks!</h4>
+
+		<ul class="badge-list">
+			<li><a href="http://validator.w3.org/"
+					class="badge-link html-badge"
+					title="W3C HTML Validation"
+					onclick="window.open(this.href+'check?uri='+document.location);return false;"></a></li>
+			<li><a href="http://jigsaw.w3.org/css-validator/"
+					class="badge-link css-badge"
+					title="W3C CSS Validation"
+					onclick="window.open(this.href+'validator?uri='+document.location);return false;"></a></li>
+		</ul>
+	</div>
+
+	<div>
+		<h2>CssUserAgent Demo</h2>
+
+		<p>This page demonstrates the power of CssUserAgent.  This feature applies User-Agent specific CSS classes to the <code>&lt;html&gt;</code> tag to allow browser-specific CSS variation without resorting to CSS hacks.  Since these are performed once at startup, CSS may be statically defined without the need to mix browser-specific logic into the presentation.</p>
+		<p>Multiple classes are created for each user-agent, allowing the web developer to target browser classes on differing levels of granularity.  The general pattern is browser name followed by version number of varying precision:</p>
+		<ul>
+			<li><code>ua-<em>browsername</em></code></li>
+			<li><code>ua-<em>browsername</em>-<em>major</em></code></li>
+			<li><code>ua-<em>browsername</em>-<em>major</em>-<em>minor</em></code></li>
+			<li><code>ua-<em>browsername</em>-<em>major</em>-<em>minor</em>-<em>build</em></code></li>
+			<li><code>ua-<em>browsername</em>-<em>major</em>-<em>minor</em>-<em>build</em>-<em>revision</em></code></li>
+		</ul>
+
+		<h2>Customized Presentation</h2>
+
+		<p>Notice how the sidebar color scheme and browser icon change depending upon which browser you are using.</p>
+		<p>This is all done with CSS since cssua.js has prepped the HTML tag with special CSS classes which allow you to target browsers with varying degrees of precision.</p>
+
+		<code class="example syntax" style="margin-right:180px;">
+			<span style="display:block"><span class="comment">&lt;!-- the CSS classes currently applied to this page tag are: --&gt;</span></span>
+			<span style="display:block"><span class="op">&lt;</span><span class="key">html class</span><span class="op">=</span><span class="lit">"<script type="text/javascript">
+				document.write(document.documentElement.className);
+			</script>"</span><span class="op">&gt;</span></span>
+			<span class="indent" style="display:block">
+				<span class="op">&lt;</span><span class="key">head</span><span class="op">&gt;&hellip;&lt;/</span><span class="key">head</span><span class="op">&gt;</span><br />
+				<span class="op">&lt;</span><span class="key">body</span><span class="op">&gt;&hellip;</span><span class="op">&lt;/</span><span class="key">body</span><span class="op">&gt;</span>
+			</span>
+			<span style="display:block"><span class="op">&lt;/</span><span class="key">html</span><span class="op">&gt;</span></span>
+		</code>
+
+		<h2>No Browser Hacks</h2>
+		<p>This allows you to target the browser rendering engine (e.g. "<code>webkit</code>"), or a specific browser (e.g. "<code>safari</code>").  The version can be targeted at the major version number (e.g. "<code>ie-5</code>" includes 5.0, 5.5) or minor (e.g. "<code>ie-5-0</code>" includes only 5.0) all the way down (e.g. "<code>ua-chrome-8-0-552-224</code>") for a very specific case.</p>
+
+		<code class="example syntax" style="margin-right:180px;">
+			<span class="comment" style="display:block">/* CssUserAgent lets you target specific browsers without CSS hacks */</span>
+			<span class="key" style="display:block">.logo-area</span>
+			{
+			<span class="indent" style="display:block">
+				<span class="op">background-image</span>: <span class="lit">url(logo.png)</span>;<br />
+				<span class="op">background-repeat</span>: <span class="lit">no-repeat</span>;<br />
+				<span class="op">background-position</span>: <span class="lit">left top</span>;
+			</span>
+			}<br /><br />
+
+			<span class="comment">/* target IE 5.0, 5.5, 6.0 */</span><br />
+			<span class="key">.ua-ie-5 .logo-area</span>,<br />
+			<span class="key">.ua-ie-6 .logo-area</span><br />
+			{
+			<span class="indent" style="display:block">
+				<span class="comment">/* IE versions &lt; 7.0 don't fully support transparent 24-bit PNGs */</span><br />
+				<span class="op">background-image</span>: <span class="lit">url(logo.gif)</span>;
+			</span>
+			}
+
+		</code>
+
+		<p>Some browsers have multiple listings if the rendering engine is significant.  For instance, Gecko-based browsers (such as Firefox, Mozilla, Netscape, Camino, SeaMonkey) also define Gecko CSS classes, to target all browsers of a specific Gecko version at once.</p>
+		<p>Below is an example of a number of browser labels which display differently under the presence of different CssUserAgent classes.</p>
+
+		<h2>Try it out</h2>
+		<p>
+			<textarea id="txtTestUA" cols="70" rows="8" style="width:100%;" onfocus="this.select();"></textarea><br />
+			<script type="text/javascript">
+				document.getElementById("txtTestUA").value=navigator.userAgent;
+			</script>
+			<input type="button" onclick="var t=document.getElementById('txtTestUA');if(t){t.value=cssua.format(cssua.parse(t.value)).replace(/^\s+|\s+$/g,'').replace(/\s+/g,'\n');}return false;" value="Show CssUserAgent" />
+			<input type="button" onclick="document.getElementById('txtTestUA').value=navigator.userAgent;" value="Reset UserAgent" />
+		</p>
+		
+		<style type="text/css">
+		
+			.ua-test ul
+			{
+				float: left;
+				width: 25%;
+				margin-top: 0.5em;
+				margin-bottom: 0.5em;
+			}
+			.ua-test li
+			{
+				text-decoration: line-through;
+				white-space: nowrap;
+			}
+		
+			.ua-ie .is-ie,
+			.ua-ie-5 .is-ie-5,
+			.ua-ie-5-0 .is-ie-5-0,
+			.ua-ie-5-5 .is-ie-5-5,
+			.ua-ie-6 .is-ie-6,
+			.ua-ie-7 .is-ie-7,
+			.ua-ie-8 .is-ie-8,
+			.ua-ie-9 .is-ie-9,
+			.ua-ie-10 .is-ie-10,
+			.ua-gecko .is-gecko,
+			.ua-gecko-1-7 .is-gecko-1-7,
+			.ua-gecko-1-8 .is-gecko-1-8,
+			.ua-gecko-1-9 .is-gecko-1-9,
+			.ua-gecko-2 .is-gecko-2,
+			.ua-firefox .is-firefox,
+			.ua-firefox-1 .is-firefox-1,
+			.ua-firefox-1-0 .is-firefox-1-0,
+			.ua-firefox-1-5 .is-firefox-1-5,
+			.ua-firefox-2 .is-firefox-2,
+			.ua-firefox-3 .is-firefox-3,
+			.ua-firefox-3-0 .is-firefox-3-0,
+			.ua-firefox-3-1 .is-firefox-3-1,
+			.ua-firefox-3-5 .is-firefox-3-5,
+			.ua-firefox-3-6 .is-firefox-3-6,
+			.ua-firefox-4 .is-firefox-4,
+			.ua-firefox-4-0 .is-firefox-4-0,
+			.ua-seamonkey .is-seamonkey,
+			.ua-seamonkey-1 .is-seamonkey-1,
+			.ua-seamonkey-1-1 .is-seamonkey-1-1,
+			.ua-netscape .is-netscape,
+			.ua-netscape-5 .is-netscape-5,
+			.ua-netscape-6 .is-netscape-6,
+			.ua-netscape-7 .is-netscape-7,
+			.ua-netscape-7-2 .is-netscape-7-2,
+			.ua-netscape-8 .is-netscape-8,
+			.ua-netscape-9 .is-netscape-9,
+			.ua-safari .is-safari,
+			.ua-safari-85 .is-safari-85,
+			.ua-safari-419 .is-safari-419,
+			.ua-safari-419-3 .is-safari-419-3,
+			.ua-safari-522 .is-safari-522,
+			.ua-safari-523 .is-safari-523,
+			.ua-safari-525 .is-safari-525,
+			.ua-safari-525-21 .is-safari-525-21,
+			.ua-safari-525-27 .is-safari-525-27,
+			.ua-safari-526 .is-safari-526,
+			.ua-safari-530-17 .is-safari-530-17,
+			.ua-webkit .is-webkit,
+			.ua-webkit-419 .is-webkit-419,
+			.ua-webkit-420 .is-webkit-420,
+			.ua-webkit-525 .is-webkit-525,
+			.ua-webkit-525-27-1 .is-webkit-525-27-1,
+			.ua-webkit-530 .is-webkit-530,
+			.ua-webkit-532 .is-webkit-532,
+			.ua-chrome .is-chrome,
+			.ua-chrome-0 .is-chrome-0,
+			.ua-chrome-0-2 .is-chrome-0-2,
+			.ua-chrome-1 .is-chrome-1,
+			.ua-chrome-2 .is-chrome-2,
+			.ua-chrome-3-0-201 .is-chrome-3-0-201,
+			.ua-chrome-4-0 .is-chrome-4-0,
+			.ua-chrome-4-0-249-89 .is-chrome-4-0-249-89,
+			.ua-chrome-5 .is-chrome-5,
+			.ua-chrome-6 .is-chrome-6,
+			.ua-chrome-7 .is-chrome-7,
+			.ua-chrome-8 .is-chrome-8,
+			.ua-chrome-9 .is-chrome-9,
+			.ua-chrome-10 .is-chrome-10,
+			.ua-chrome-11 .is-chrome-11,
+			.ua-opera .is-opera,
+			.ua-opera-7 .is-opera-7,
+			.ua-opera-8 .is-opera-8,
+			.ua-opera-9 .is-opera-9,
+			.ua-opera-9-52 .is-opera-9-52,
+			.ua-opera-10 .is-opera-10,
+			.ua-camino .is-camino,
+			.ua-camino-1 .is-camino-1,
+			.ua-icab .is-icab,
+			.ua-icab-2 .is-icab-2,
+			.ua-icab-4 .is-icab-4,
+			.ua-icab-4 .is-icab-4
+			{
+				font-weight: bold;
+				color: #CC0000;
+				background-color: #FFFF00;
+				text-decoration: none;
+			}
+		</style>
+
+		<div class="ua-test" style="margin-bottom:4em;">
+			<ul style="width:33%">
+				<li class="is-gecko">Gecko</li>
+				<li class="is-gecko-1-7">Gecko 1.7</li>
+				<li class="is-gecko-1-8">Gecko 1.8</li>
+				<li class="is-gecko-1-9">Gecko 1.9</li>
+				<li class="is-gecko-2">Gecko 2</li>
+				<li class="is-firefox">Firefox</li>
+				<li class="is-firefox-1">Firefox 1.x</li>
+				<li class="is-firefox-1-0">Firefox 1.0</li>
+				<li class="is-firefox-1-5">Firefox 1.5</li>
+				<li class="is-firefox-2">Firefox 2.x</li>
+				<li class="is-firefox-3">Firefox 3.x</li>
+				<li class="is-firefox-3-0">Firefox 3.0.x</li>
+				<li class="is-firefox-3-1">Firefox 3.1</li>
+				<li class="is-firefox-3-5">Firefox 3.5.x</li>
+				<li class="is-firefox-3-6">Firefox 3.6.x</li>
+				<li class="is-firefox-4">Firefox 4.x</li>
+				<li class="is-firefox-4-0">Firefox 4.0.x</li>
+				<li class="is-seamonkey">SeaMonkey</li>
+				<li class="is-seamonkey-1">SeaMonkey 1.x</li>
+				<li class="is-seamonkey-1-1">SeaMonkey 1.1</li>
+				<li class="is-netscape">Netscape</li>
+				<li class="is-netscape-5">Netscape 5.x</li>
+				<li class="is-netscape-6">Netscape 6.x</li>
+				<li class="is-netscape-7">Netscape 7.x</li>
+				<li class="is-netscape-7-2">Netscape 7.2</li>
+				<li class="is-netscape-8">Netscape 8.x</li>
+				<li class="is-netscape-9">Netscape 9.x</li>
+			</ul><ul style="width:33%">
+				<li class="is-safari">Safari</li>
+				<li class="is-safari-85">Safari 1.x (85.x)</li>
+				<li class="is-safari-419">Safari 2.x (419.x)</li>
+				<li class="is-safari-419-3">Safari 2.0.4 (419.3)</li>
+				<li class="is-safari-522">Safari (522.x)</li>
+				<li class="is-safari-523">Safari 3.0 (523.x)</li>
+				<li class="is-safari-525-21">Safari 3.1 (525.21)</li>
+				<li class="is-safari-525-27">Safari 3.2 (525.27)</li>
+				<li class="is-safari-526">Safari 4.0 (526.x)</li>
+				<li class="is-safari-530-17">Safari 4.0 (530.17)</li>
+				<li class="is-webkit">Apple Webkit</li>
+				<li class="is-webkit-419">Apple Webkit 419.x</li>
+				<li class="is-webkit-420">Apple Webkit Nightly 420.x</li>
+				<li class="is-webkit-525">Apple Webkit 525.x</li>
+				<li class="is-webkit-525-27-1">Apple Webkit 525.27.1</li>
+				<li class="is-webkit-530">Apple Webkit 530.x</li>
+				<li class="is-webkit-532">Apple Webkit 532.x</li>
+				<li class="is-chrome">Chrome</li>
+				<li class="is-chrome-0-2">Chrome 0.2.x</li>
+				<li class="is-chrome-1">Chrome 1.x</li>
+				<li class="is-chrome-4">Chrome 4.x</li>
+				<li class="is-chrome-5">Chrome 5.x</li>
+				<li class="is-chrome-7">Chrome 7.x</li>
+				<li class="is-chrome-8">Chrome 8.x</li>
+				<li class="is-chrome-9">Chrome 9.x</li>
+				<li class="is-chrome-10">Chrome 10.x</li>
+				<li class="is-chrome-11">Chrome 11.x</li>
+			</ul><ul style="width:20%">
+				<li class="is-ie">Internet Explorer</li>
+				<li class="is-ie-5">Internet Explorer 5.x</li>
+				<li class="is-ie-5-0">Internet Explorer 5.0</li>
+				<li class="is-ie-5-5">Internet Explorer 5.5</li>
+				<li class="is-ie-6">Internet Explorer 6.x</li>
+				<li class="is-ie-7">Internet Explorer 7.x</li>
+				<li class="is-ie-8">Internet Explorer 8.x</li>
+				<li class="is-ie-9">Internet Explorer 9.x</li>
+				<li class="is-ie-10">Internet Explorer 10.x</li>
+			</ul><ul style="width:20%">
+				<li class="is-opera">Opera</li>
+				<li class="is-opera-7">Opera 7.x</li>
+				<li class="is-opera-8">Opera 8.x</li>
+				<li class="is-opera-9">Opera 9.x</li>
+				<li class="is-opera-9-52">Opera 9.52</li>
+				<li class="is-opera-10">Opera 10.x</li>
+			</ul><ul style="width:20%">
+				<li class="is-icab">iCab</li>
+				<li class="is-icab-2">iCab 2.x</li>
+				<li class="is-icab-3">iCab 3.x</li>
+				<li class="is-icab-4">iCab 4.x</li>
+			</ul><ul style="width:20%">
+				<li class="is-camino">Camino</li>
+				<li class="is-camino-1">Camino 1.x</li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>

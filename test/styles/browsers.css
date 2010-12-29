@@ -1,0 +1,233 @@
+/*
+	browsers.css
+
+	browser info stylesheet
+*/
+
+.browser-info
+{
+	clear: right;
+	float: right;
+	margin: 10px 0 10px 10px;
+	background-color: #F1F1F1;
+	background-position: center 1em;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	padding: 0.5em 1em;
+	border: 1px solid #666666;
+	text-align: center;
+	width: 138px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	/*-webkit-box-shadow: 0 0 5px #999999;*/
+	-moz-box-shadow: 0 0 5px #999999;
+	box-shadow: 0 0 5px #999999;
+}
+.ua-ie-5 .browser-info,
+.ua-ie-6 .browser-info
+{
+	/* IE6 24-bit PNGs lack alpha */
+	background-color: #C8D0D4;/*#C1CACF;*/
+	/*border-color: #999999;*/
+}
+
+.browser-info
+{
+	background-image: url(browsers/Unknown_128.png);
+	padding-top: 150px;
+}
+
+/* Trident-based browsers */
+.ua-ie .browser-info
+{
+	border-color: #0979CF;
+	border-top-color: #F6B718;
+	border-left-color: #F6B718;
+	background-image: url(browsers/IE7_128.png);
+}
+.ua-ie-6 .browser-info
+{
+	border-color: #37A9F4;
+	border-top-color: #ADEFFD;
+	border-left-color: #ADEFFD;
+	background-image: url(browsers/IE6_128.png);
+	height: 128px;
+}
+.ua-ie-5-5 .browser-info
+{
+	border-color: #2E5AFF;
+	border-top-color: #FFD573;
+	border-left-color: #FFD573;
+	background-image: url(browsers/IE5_48.png);
+	background-position: center 40px;
+	height: 128px;
+}
+
+/* Presto-based browsers */
+.ua-opera .browser-info
+{
+	border-color: #3B4959;
+	border-top-color: #961D1F;
+	border-left-color: #961D1F;
+	background-image: url(browsers/Opera_128.png);
+}
+
+/* WebKit-based browsers */
+.ua-webkit .browser-info
+{
+	border-color: #2D3494;
+	border-top-color: #DDBB7A;
+	border-left-color: #DDBB7A;
+	background-image: url(browsers/WebKit_128.png);
+}
+.ua-safari .browser-info
+{
+	border-color: #1758A4;
+	border-top-color: #999999;
+	border-left-color: #999999;
+	background-image: url(browsers/Safari_128.png);
+}
+.ua-chrome .browser-info
+{
+	border-color: #2BAB33;
+	border-top-color: #FFD600;
+	border-left-color: #FFD600;
+	background-image: url(browsers/Chrome_128.png);
+}
+.ua-shiira .browser-info
+{
+	border-color: #0198C2;
+	border-top-color: #A86FE6;
+	border-left-color: #A86FE6;
+	background-image: url(browsers/Shiira_128.png);
+}
+.ua-omniweb .browser-info
+{
+	border-color: #2B84EA;
+	border-top-color: #62AE0C;
+	border-left-color: #62AE0C;
+	background-image: url(browsers/OmniWeb_128.png);
+}
+
+/* KHTML-based browsers */
+.ua-khtml .browser-info,
+.ua-konqueror .browser-info
+{
+	border-color: #5CAFFF;
+	border-top-color: #E0E0E6;
+	border-left-color: #E0E0E6;
+	background-image: url(browsers/Konqueror_128.png);
+}
+
+/* Gecko-based browsers */
+.ua-gecko .browser-info
+{
+	border-color: #075090;
+	border-top-color: #2394C7;
+	border-left-color: #2394C7;
+	background-image: url(browsers/Gecko_128.png);
+}
+.ua-firebird .browser-info
+{
+	border-color: #FB0F0C;
+	border-top-color: #F96611;
+	border-left-color: #F96611;
+	background-image: url(browsers/Firebird_48.png);
+	background-position: center 40px;
+}
+.ua-firefox .browser-info
+{
+	border-color: #DE730C;
+	border-top-color: #F9BE00;
+	border-left-color: #F9BE00;
+	background-image: url(browsers/Firefox_128.png);
+}
+.ua-seamonkey .browser-info
+{
+	border-color: #2424E4;
+	border-top-color: #8484FE;
+	border-left-color: #8484FE;
+	background-image: url(browsers/SeaMonkey_128.png);
+}
+.ua-camino .browser-info
+{
+	border-color: #5C8FD6;
+	border-top-color: #E5E5E5;
+	border-left-color: #E5E5E5;
+	background-image: url(browsers/Camino_128.png);
+}
+.ua-flock .browser-info
+{
+	border-color: #9A9FA4;
+	border-top-color: #358DEC;
+	border-left-color: #358DEC;
+	background-image: url(browsers/Flock_128.png);
+}
+.ua-epiphany .browser-info
+{
+	border-color: #526F8B;
+	border-top-color: #358B35;
+	border-left-color: #358B35;
+	background-image: url(browsers/Epiphany_64.png);
+	background-position: center 32px;
+}
+.ua-galeon .browser-info
+{
+	border-color: #2B468D;
+	border-top-color: #A6CBF1;
+	border-left-color: #A6CBF1;
+	background-image: url(browsers/Galeon_128.png);
+}
+.ua-k-meleon .browser-info
+{
+	border-color: #B24E51;
+	border-top-color: #7BBA4A;
+	border-left-color: #7BBA4A;
+	background-image: url(browsers/K-Meleon_82.png);
+	background-position: center 23px;	
+}
+.ua-netscape .browser-info
+{
+	border-color: #12424E;
+	border-top-color: #36ABB1;
+	border-left-color: #36ABB1;
+	background-image: url(browsers/Netscape_128.png);
+}
+.ua-netscape-8 .browser-info
+{
+	background-image: url(browsers/Netscape8_128.png);
+}
+.ua-netscape-9 .browser-info
+{
+	background-image: url(browsers/Netscape9_128.png);
+}
+.ua-icab .browser-info
+{
+	border-color: #FA2C2C;
+	border-top-color: #FFD00A;
+	border-left-color: #FFD00A;
+	background-image: url(browsers/iCab3_128.png);
+}
+.ua-icab-4 .browser-info
+{
+	background-image: url(browsers/iCab4_128.png);
+}
+
+/* Mozilla catch all */
+.ua-mozilla .browser-info
+{
+	border-color: #024690;
+	border-top-color: #3688E0;
+	border-left-color: #3688E0;
+	background-image: url(browsers/Mozilla_128.png);
+}
+
+@media print
+{
+	.browser-info
+	{
+		background-color: white !important;
+		border-color: black !important;
+	}
+}

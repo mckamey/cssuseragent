@@ -1,0 +1,10 @@
+body { font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial; font-size: 9pt; margin: 0 auto; padding: 0; width: 60%; min-width:600px; }
+h1, h1 a:link, h1 a:hover, h1 a:active, h1 a:visited { color: white; font-size: 14pt; font-weight: bold; margin: 1em 0; padding: 0.25em; text-align: center; }
+h2 { font-size: 12pt; }
+dl, ul { margin: 0; padding: 0.75em 0.25em; }
+dl dt { font-weight: bold; margin: 0 0 0 0.5em; padding: 0.25em 0 0.25em 0.5em; }
+dl dd { list-style-type: none; margin: 0 0 0 1.5em; padding: 0.25em 0 0.25em 1.5em; }
+ul li { list-style-type: none; margin: 0 0 0 0.5em; padding: 0.25em 0 0.25em 0.5em; }
+.box { background-color: #F1F1F1; border: 1px solid silver; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; box-shadow: 0 0 4px #DDDDDD; -moz-box-shadow: 0 0 4px #DDDDDD; -webkit-box-shadow: 0 0 4px #DDDDDD; }
+h1.box { background-color: #006699; border: 1px solid #333333; box-shadow: 0 0 8px silver; -moz-box-shadow: 0 0 8px silver; -webkit-box-shadow: 0 0 8px silver; }
+a:link, a:hover, a:active, a:visited { color: #006699; }

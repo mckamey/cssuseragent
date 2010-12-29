@@ -1,9 +1,9 @@
-﻿/*
+/**
 	cssua.js
-	Uer-agent specific CSS support
+	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2010-12-22-1222
+	Modified: 2010-12-29-1251
 
 	Copyright (c)2006-2010 Stephen M. McKamey
 	Distributed under the MIT license.
@@ -13,20 +13,17 @@ var cssua = (function(html, userAgent) {
 
 	/*const string*/ var PREFIX = " ua-";
 
-	// RegExp tested against (2007-06-17-1235):
-	// http://www.useragentstring.com/pages/useragentstring.php
-	// http://www.user-agents.org
-	// http://en.wikipedia.org/wiki/User_agent
-	// http://www.zytrax.com/tech/web/mobile_ids.html
+	/*jslint regexp: false, browser: true */
+
 	var R_All = /[\w\-\.]+[\/][v]?\d+(\.\d+)*/g,
-		R_AOL = /\b(america online browser|aol)[\s\/]*(\d+(\.\d+)*)/,
-		R_MSIE = /(\bmsie|microsoft internet explorer)[\s\/]*(\d+(\.\d+)*)/,
-		R_Gecko = /rv[:](\d+(\.\d+)*).*?gecko[\/]\d+/,
+		R_AOL = /\b(aol|america online browser)[\s\/]*(\d+(\.\d+)*)/,
+		R_MSIE = /\b(msie|microsoft internet explorer)[\s\/]*(\d+(\.\d+)*)/,
+		R_Gecko = /rv[:](\d+(\.\d+)*).*?\bgecko[\/]\d+/,
 		R_Opera = /\bopera[\s\/]*(\d+(\.\d+)*)/,
 		R_MSPIE = /\b(mspie|microsoft pocket internet explorer)[\s\/]*(\d+(\.\d+)*)/,
 		R_iCab = /\bicab[\s\/]*(\d+(\.\d+)*)/,
-		R_BlackBerry = /\bblackberry\w+[\s\/]+(\d+(\.\d+)*)/,
-		R_mobile = /(\w*mobile\w*|\w*phone\w*|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|blackberry\w*|windows ce\b|palm\w*\b|symbian\w*\b)/;
+		R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\d+)*)/,
+		R_mobile = /(\w*mobile[\/]\w*|\bipad\b|\bipod\b|\w*phone\w*|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|blackberry\w*|windows ce\b|palm\w*\b|symbian\w*\b)/;
 
 	var cssua = {
 		/*Map<string,string>*/ userAgent: {},
@@ -39,14 +36,14 @@ var cssua = (function(html, userAgent) {
 				return ua;
 			}
 
-			// do this first for all (covers most browser types)
+			// do this first for all (covers generic user-agents)
 			var raw = uaStr.match(R_All);
 			if (raw) {
 				for (var i=0; i<raw.length; i++) {
 					var s = raw[i].indexOf('/'),
 						b = raw[i].substring(0, s);
 					if (b && b !== "mozilla") {
-						// shorten this common browser
+						// shorten this common engine
 						if (b === "applewebkit") {
 							b = "webkit";
 						}
@@ -77,10 +74,38 @@ var cssua = (function(html, userAgent) {
 			if (!ua.blackberry && R_BlackBerry.exec(uaStr)) {
 				ua.blackberry = RegExp.$1;
 			}
-			if (!ua.mobile && R_mobile.exec(uaStr)) {
+			if (R_mobile.exec(uaStr)) {
 				ua.mobile = RegExp.$1;
 			}
-			
+
+			// version standardization
+			if (ua.safari) {
+				if (ua.chrome || ua.blackberry) {
+					delete ua.safari;
+
+				} else if (ua.version) {
+					ua.safari = ua.version;
+
+				} else /*if (ua.safari > 80 && ua.safari < 500)*/ {
+					ua.safari = ({
+						"419": "2.0.4",
+						"417": "2.0.3",
+						"416": "2.0.2",
+						"412": "2.0",
+						"312": "1.3",
+						"125": "1.2",
+						"85": "1.0"
+					})[parseInt(ua.safari, 10)] || ua.safari;
+				}
+
+			} else if (ua.opera && ua.version) {
+				ua.opera = ua.version;
+			}
+
+			if (ua.version) {
+				delete ua.version;
+			}
+
 			return ua;
 		},
 

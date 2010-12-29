@@ -1,0 +1,39 @@
+/*
+	validation.css
+
+	validation badges stylesheet
+*/
+
+.badge-list li
+{
+	display: block;
+}
+
+/* badge inactive state */
+.badge-list a.badge-link
+{
+	margin: 0.25em auto;
+	display: block;
+	background-image: url(validation.png);
+	background-repeat: no-repeat;
+	height: 35px;
+	width: 92px;
+}
+.badge-list a.html-badge
+{
+	background-position: top left;
+}
+.badge-list a.css-badge
+{
+	background-position: top right;
+}
+
+/* badge hover state */
+.badge-list a.html-badge:hover
+{
+	background-position: bottom left;
+}
+.badge-list a.css-badge:hover
+{
+	background-position: bottom right;
+}
