@@ -1,0 +1,49 @@
+/*
+	Zebra.css
+
+	zZebra list stylesheet
+*/
+
+.zebra
+{
+	border: 1px solid #DDDDDD;
+	margin: 0.5em 0;
+	padding: 0;
+}
+.ua-ie-5 .zebra,
+.ua-ie-6 .zebra
+{
+	border-color: #999999;
+}
+.zebra-item
+{
+	background-color: #FFFFFF;
+	padding: 0.25em;
+	margin: 0;
+}
+.zebra-item-alt
+{
+	background-color: #F5F5F5;
+}
+.ua-ie-5 .zebra-item,
+.ua-ie-6 .zebra-item
+{
+	/* trigger hasLayout */
+	display: inline-block;
+}
+
+@media print
+{
+	.zebra
+	{
+		border-color: black;
+		border-bottom-style: none;
+	}
+
+	.zebra-item,
+	.zebra-item-alt
+	{
+		background-color: white;
+		border-bottom: 1px solid black;
+	}
+}

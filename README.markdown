@@ -7,7 +7,7 @@ Adding cssua.js to the page preps the document with special CSS classes which en
 
 	<!-- example CSS classes applied to the page -->
 	<html class="ua-webkit ua-webkit-534 ua-webkit-534-10 ua-chrome ua-chrome-8 ua-chrome-8-0
-		ua-chrome-8-0-552 ua-chrome-8-0-552-224 ua-safari ua-safari-534 ua-safari-534-10">
+		ua-chrome-8-0-552 ua-chrome-8-0-552-224">
 		...
 	</html>
 
@@ -39,8 +39,7 @@ manner that doesn't require string parsing. For example, this object is effectiv
 
 	cssua.ua = {
 	   webkit: "534.10",
-	   chrome: "8.0.552.224",
-	   safari: "534.10"
+	   chrome: "8.0.552.224"
 	};
 
 Testing for older Internet Explorer has never been easier than
