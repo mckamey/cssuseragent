@@ -8,3 +8,4 @@ ul li { list-style-type: none; margin: 0 0 0 0.5em; padding: 0.25em 0 0.25em 0.5
 .box { background-color: #F1F1F1; border: 1px solid silver; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; box-shadow: 0 0 4px #DDDDDD; -moz-box-shadow: 0 0 4px #DDDDDD; -webkit-box-shadow: 0 0 4px #DDDDDD; }
 h1.box { background-color: #006699; border: 1px solid #333333; box-shadow: 0 0 8px silver; -moz-box-shadow: 0 0 8px silver; -webkit-box-shadow: 0 0 8px silver; }
 a:link, a:hover, a:active, a:visited { color: #006699; }
+footer {  border-top: 1px solid #F1F1F1; clear: both; margin: 4em auto; padding-top: 1em; text-align: right; }

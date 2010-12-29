@@ -59,5 +59,9 @@ This script understands the common structures of user agent strings enabling fut
 work without changes. For example, when the early beta builds of Google Chrome were first released,
 it just worked.
 
+----
+
+Copyright (c) 2006-2010 Stephen M. McKamey
+
   [1]: http://cssuseragent.org
   [2]: https://bitbucket.org/mckamey/cssuseragent/src/tip/LICENSE.txt
