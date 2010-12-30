@@ -18,9 +18,9 @@
 
 	<div class="browser-info">
 		<h4>Looks like you're using&hellip;</h4>
-		<ul class="zebra">
 		<script type="text/javascript">
 			(function() {
+				document.write("<ul class=\"zebra\">");
 				var i=0, ua = cssua.userAgent;
 				for (var key in ua) {
 					document.write("<li class=\"zebra-item");
@@ -33,9 +33,9 @@
 					document.write(ua[key]);
 					document.write("</li>");
 				}
+				document.write("</ul>");
 			})()
 		</script>
-		</ul>
 
 		<h4 style="margin:2em 0 0 0;">Avoid CSS hacks!</h4>
 
@@ -64,7 +64,7 @@
 			<li><code>ua-<em>browsername</em>-<em>major</em>-<em>minor</em>-<em>build</em>-<em>revision</em></code></li>
 		</ul>
 
-		<h2>Customized Presentation</h2>
+		<h2>Customized presentation</h2>
 
 		<p>Notice how the sidebar color scheme and browser icon change depending upon which browser you are using.</p>
 		<p>This is all done with CSS since cssua.js has prepped the HTML tag with special CSS classes which allow you to target browsers with varying degrees of precision.</p>
@@ -81,7 +81,7 @@
 			<span style="display:block"><span class="op">&lt;/</span><span class="key">html</span><span class="op">&gt;</span></span>
 		</code>
 
-		<h2>No Browser Hacks</h2>
+		<h2>No browser hacks</h2>
 		<p>This allows you to target the browser rendering engine (e.g. "<code>webkit</code>"), or a specific browser (e.g. "<code>safari</code>").  The version can be targeted at the major version number (e.g. "<code>ie-5</code>" includes 5.0, 5.5) or minor (e.g. "<code>ie-5-0</code>" includes only 5.0) all the way down (e.g. "<code>ua-chrome-8-0-552-224</code>") for a very specific case.</p>
 
 		<code class="example syntax" style="margin-right:180px;">
