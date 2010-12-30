@@ -41,6 +41,14 @@
 /* Trident-based browsers */
 .ua-ie .browser-info
 {
+	border-color: #50BEF2;
+	border-top-color: #FFE446;
+	border-left-color: #FFE446;
+	background-image: url(browsers/IE9_128.png);
+}
+.ua-ie-8 .browser-info,
+.ua-ie-7 .browser-info
+{
 	border-color: #0979CF;
 	border-top-color: #F6B718;
 	border-left-color: #F6B718;
@@ -137,6 +145,17 @@
 	background-position: center 40px;
 }
 .ua-firefox .browser-info
+{
+	border-color: #DE730C;
+	border-top-color: #F9BE00;
+	border-left-color: #F9BE00;
+	background-image: url(browsers/Firefox35_128.png);
+}
+.ua-firefox-3-1 .browser-info,
+.ua-firefox-3-0 .browser-info,
+.ua-firefox-2 .browser-info,
+.ua-firefox-1 .browser-info,
+.ua-firefox-0 .browser-info
 {
 	border-color: #DE730C;
 	border-top-color: #F9BE00;
