@@ -1,4 +1,4 @@
-# [CssUserAgent][1] (cssua.js)
+# [.css{user:agent;}][1] (cssua.js)
 Distributed under the terms of an [MIT-style license][2]
 
 ## Special CSS Classes...
