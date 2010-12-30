@@ -20,9 +20,9 @@
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
-	-webkit-box-shadow: 0 0 5px #999999;
-	-moz-box-shadow: 0 0 5px #999999;
-	box-shadow: 0 0 5px #999999;
+	-webkit-box-shadow: 0px 0px 5px #999999;
+	-moz-box-shadow: 0px 0px 5px #999999;
+	box-shadow: 0px 0px 5px #999999;
 }
 .ua-ie-5 .browser-info,
 .ua-ie-6 .browser-info
@@ -230,4 +230,105 @@
 		background-color: white !important;
 		border-color: black !important;
 	}
+}
+
+.ua-test ul
+{
+	float: left;
+	width: 25%;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+.ua-test li
+{
+	text-decoration: line-through;
+	white-space: nowrap;
+}
+
+.ua-ie .is-ie,
+.ua-ie-5 .is-ie-5,
+.ua-ie-5-0 .is-ie-5-0,
+.ua-ie-5-5 .is-ie-5-5,
+.ua-ie-6 .is-ie-6,
+.ua-ie-7 .is-ie-7,
+.ua-ie-8 .is-ie-8,
+.ua-ie-9 .is-ie-9,
+.ua-ie-10 .is-ie-10,
+.ua-gecko .is-gecko,
+.ua-gecko-1-7 .is-gecko-1-7,
+.ua-gecko-1-8 .is-gecko-1-8,
+.ua-gecko-1-9 .is-gecko-1-9,
+.ua-gecko-2 .is-gecko-2,
+.ua-firefox .is-firefox,
+.ua-firefox-1 .is-firefox-1,
+.ua-firefox-1-0 .is-firefox-1-0,
+.ua-firefox-1-5 .is-firefox-1-5,
+.ua-firefox-2 .is-firefox-2,
+.ua-firefox-3 .is-firefox-3,
+.ua-firefox-3-0 .is-firefox-3-0,
+.ua-firefox-3-1 .is-firefox-3-1,
+.ua-firefox-3-5 .is-firefox-3-5,
+.ua-firefox-3-6 .is-firefox-3-6,
+.ua-firefox-4 .is-firefox-4,
+.ua-firefox-4-0 .is-firefox-4-0,
+.ua-seamonkey .is-seamonkey,
+.ua-seamonkey-1 .is-seamonkey-1,
+.ua-seamonkey-1-1 .is-seamonkey-1-1,
+.ua-netscape .is-netscape,
+.ua-netscape-5 .is-netscape-5,
+.ua-netscape-6 .is-netscape-6,
+.ua-netscape-7 .is-netscape-7,
+.ua-netscape-7-2 .is-netscape-7-2,
+.ua-netscape-8 .is-netscape-8,
+.ua-netscape-9 .is-netscape-9,
+.ua-safari .is-safari,
+.ua-safari-85 .is-safari-85,
+.ua-safari-419 .is-safari-419,
+.ua-safari-419-3 .is-safari-419-3,
+.ua-safari-522 .is-safari-522,
+.ua-safari-523 .is-safari-523,
+.ua-safari-525 .is-safari-525,
+.ua-safari-525-21 .is-safari-525-21,
+.ua-safari-525-27 .is-safari-525-27,
+.ua-safari-526 .is-safari-526,
+.ua-safari-530-17 .is-safari-530-17,
+.ua-webkit .is-webkit,
+.ua-webkit-419 .is-webkit-419,
+.ua-webkit-420 .is-webkit-420,
+.ua-webkit-525 .is-webkit-525,
+.ua-webkit-525-27-1 .is-webkit-525-27-1,
+.ua-webkit-530 .is-webkit-530,
+.ua-webkit-532 .is-webkit-532,
+.ua-chrome .is-chrome,
+.ua-chrome-0 .is-chrome-0,
+.ua-chrome-0-2 .is-chrome-0-2,
+.ua-chrome-1 .is-chrome-1,
+.ua-chrome-2 .is-chrome-2,
+.ua-chrome-3-0-201 .is-chrome-3-0-201,
+.ua-chrome-4-0 .is-chrome-4-0,
+.ua-chrome-4-0-249-89 .is-chrome-4-0-249-89,
+.ua-chrome-5 .is-chrome-5,
+.ua-chrome-6 .is-chrome-6,
+.ua-chrome-7 .is-chrome-7,
+.ua-chrome-8 .is-chrome-8,
+.ua-chrome-9 .is-chrome-9,
+.ua-chrome-10 .is-chrome-10,
+.ua-chrome-11 .is-chrome-11,
+.ua-opera .is-opera,
+.ua-opera-7 .is-opera-7,
+.ua-opera-8 .is-opera-8,
+.ua-opera-9 .is-opera-9,
+.ua-opera-9-52 .is-opera-9-52,
+.ua-opera-10 .is-opera-10,
+.ua-camino .is-camino,
+.ua-camino-1 .is-camino-1,
+.ua-icab .is-icab,
+.ua-icab-2 .is-icab-2,
+.ua-icab-4 .is-icab-4,
+.ua-icab-4 .is-icab-4
+{
+	font-weight: bold;
+	color: #CC0000;
+	background-color: #FFFF00;
+	text-decoration: none;
 }

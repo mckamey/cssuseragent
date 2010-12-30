@@ -20,9 +20,9 @@ code
 	border-radius: 4px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
-	box-shadow: 0 0 4px #DDDDDD;
-	-moz-box-shadow: 0 0 4px #DDDDDD;
-	-webkit-box-shadow: 0 0 4px #DDDDDD;
+	box-shadow: 0px 0px 4px #DDDDDD;
+	-moz-box-shadow: 0px 0px 4px #DDDDDD;
+	-webkit-box-shadow: 0px 0px 4px #DDDDDD;
 	display: block;
 	padding: 0.125em 0.5em;
 	padding: 1em;
