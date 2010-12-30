@@ -1,5 +1,5 @@
-# [.css{user:agent;}][1] (cssua.js)
-Distributed under the terms of an [MIT-style license][2]
+# [.css{user:agent;}][1]
+Distributed under the terms of [The MIT license][2].
 
 ## Special CSS Classes...
 
@@ -64,4 +64,4 @@ it just worked.
 Copyright (c) 2006-2010 Stephen M. McKamey
 
   [1]: http://cssuseragent.org
-  [2]: https://bitbucket.org/mckamey/cssuseragent/src/tip/LICENSE.txt
+  [2]: https://bitbucket.org/mckamey/cssuseragent/raw/tip/LICENSE.txt
