@@ -28,23 +28,30 @@ This makes applying slight layout differences a snap:
 		background-image: url(foo.gif);
 	}
 
+## Mobile browser detection
+
+CssUserAgent helps detect the increasingly ambiguous category of mobile browsers.
+cssua.js adds specific classes when it detects mobile browsers:
+
+	<html class="... ua-mobile ua-mobile-iphone ...">…<html>
+
 ## UserAgent map...
 
-UserAgent-sniffing is something to be used sparingly, but any pragmatic developer knows it is
-sometimes needed. When it is, cssua.js produces as a side-effect a helper object which makes
+UserAgent-sniffing is regarded as something to be used sparingly, but any pragmatic developer knows it is
+sometimes the simplest approach. When it is, cssua.js produces a helper object as a side-effect which makes
 user-agent-siffing a snap.
 
 An object map is also built which allows you to test the user agent from your script in a simplified
 manner that doesn't require string parsing. For example, this object is effectively produced:
 
-	cssua.ua = {
+	cssua.userAgent = {
 	   webkit: "534.10",
 	   chrome: "8.0.552.224"
 	};
 
 Testing for older Internet Explorer has never been easier than
 
-	if (cssua.ua.ie < 8) { /* proof of Pareto principle here */ }
+	if (cssua.userAgent.ie < 8) { /* proof of Pareto principle here */ }
 
 ## No Browser Hacks...
 

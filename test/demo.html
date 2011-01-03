@@ -27,9 +27,9 @@
 					if (i++ % 2) {
 						document.write(" zebra-item-alt");
 					}
-					document.write("\">");
+					document.write("\"><strong>");
 					document.write(key)
-					document.write(" ");
+					document.write("</strong> ");
 					document.write(ua[key]);
 					document.write("</li>");
 				}
@@ -69,7 +69,7 @@
 		<p>Notice how the sidebar color scheme and browser icon change depending upon which browser you are using.</p>
 		<p>This is all done with CSS since cssua.js has prepped the HTML tag with special CSS classes which allow you to target browsers with varying degrees of precision.</p>
 
-		<code class="example syntax" style="margin-right:180px;">
+		<code class="example syntax">
 			<span style="display:block"><span class="comment">&lt;!-- the CSS classes currently applied to this page tag are: --&gt;</span></span>
 			<span style="display:block"><span class="op">&lt;</span><span class="key">html class</span><span class="op">=</span><span class="lit">"<script type="text/javascript">
 				document.write(document.documentElement.className);
@@ -81,10 +81,45 @@
 			<span style="display:block"><span class="op">&lt;/</span><span class="key">html</span><span class="op">&gt;</span></span>
 		</code>
 
+		<h2>Mobile browser detection</h2>
+		<p>CssUserAgent helps detect the increasingly ambiguous category of mobile browsers. <code>cssua.js</code> adds specific classes when it detects mobile browsers:</p>
+		<code class="example syntax">
+			<span style="display:block"><span class="op">&lt;</span><span class="key">html class</span><span class="op">=</span><span class="lit">"&hellip; ua-mobile ua-mobile-iphone &hellip;"</span><span class="op">&gt;</span>&hellip;<span class="op">&lt;</span><span class="key">html</span><span class="op">&gt;</span></span>
+		</code>
+
+		<h2>UserAgent map</h2>
+		<p>UserAgent-sniffing is regarded as something to be used sparingly, but any pragmatic developer knows it is sometimes the simplest approach. When it is, <code>cssua.js</code> produces a helper object as a side-effect which makes user-agent-siffing a snap.</p>
+		<p>An object map is also built which allows you to test the user agent from your script in a simplified manner that doesn't require string parsing. For example, this object is effectively produced:</p>
+
+		<code class="example syntax">
+			cssua.userAgent <span class="op">= {</span>
+			<script type="text/javascript">
+				(function() {
+					var i=0, ua = cssua.userAgent;
+					for (var key in ua) {
+						if (i++ > 0) {
+							document.write("<span class=\"op\">,</span>\n");
+						}
+						document.write(key)
+						document.write("<span class=\"op\">:</span> <span class=\"lit\">\"");
+						document.write(ua[key]);
+						document.write("\"</span>");
+					}
+				})()
+			</script>
+			<span class="op">};</span>
+		</code>
+
+		<p>Testing for older Internet Explorer has never been easier than this:</p>
+
+		<code class="example syntax">
+			<span class="key">if</span> (cssua.userAgent.ie <span class="op">&lt;</span> 8) { <span class="comment">/* proof of Pareto principle here */</span> <span class="op">}</span>
+		</code>
+
 		<h2>No browser hacks</h2>
 		<p>This allows you to target the browser rendering engine (e.g. "<code>webkit</code>"), or a specific browser (e.g. "<code>safari</code>").  The version can be targeted at the major version number (e.g. "<code>ie-5</code>" includes 5.0, 5.5) or minor (e.g. "<code>ie-5-0</code>" includes only 5.0) all the way down (e.g. "<code>ua-chrome-8-0-552-224</code>") for a very specific case.</p>
 
-		<code class="example syntax" style="margin-right:180px;">
+		<code class="example syntax">
 			<span class="comment" style="display:block">/* CssUserAgent lets you target specific browsers without CSS hacks */</span>
 			<span class="key" style="display:block">.logo-area</span>
 			{
