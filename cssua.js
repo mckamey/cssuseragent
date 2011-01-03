@@ -3,9 +3,9 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2010-12-29-1251
+	Modified: 2011-01-03-1109
 
-	Copyright (c)2006-2010 Stephen M. McKamey
+	Copyright (c)2006-2011 Stephen M. McKamey
 	Distributed under the MIT license.
 */
 
@@ -26,7 +26,6 @@ var cssua = (function(html, userAgent) {
 		R_mobile = /(\w*mobile[\/]\w*|\bipad\b|\bipod\b|\w*phone\w*|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|blackberry\w*|windows ce\b|palm\w*\b|symbian\w*\b)/;
 
 	var cssua = {
-		/*Map<string,string>*/ userAgent: {},
 
 		/*Map<string,string>*/ parse : function(/*string*/ uaStr) {
 			/*Map<string,string>*/ var ua = {};
@@ -154,10 +153,10 @@ var cssua = (function(html, userAgent) {
 	};
 
 	// calculate userAgent
-	cssua.userAgent = cssua.parse(userAgent);
+	cssua.userAgent = cssua.ua = cssua.parse(userAgent);
 
 	// append CSS classes to HTML node
-	var ua = cssua.format(cssua.userAgent);
+	var ua = cssua.format(cssua.ua);
 	if (html.className) {
 		html.className += ua;
 	} else {
