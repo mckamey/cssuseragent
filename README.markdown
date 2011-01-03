@@ -53,6 +53,10 @@ Testing for older Internet Explorer has never been easier than
 
 	if (cssua.userAgent.ie < 8) { /* proof of Pareto principle here */ }
 
+Or testing if is a mobile browser:
+
+	if (cssua.userAgent.mobile) { /* consider your audience */ }
+
 ## No Browser Hacks...
 
 This technique also avoids *all* CSS hacks. It allows you to target the browser rendering engine

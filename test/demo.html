@@ -116,6 +116,12 @@
 			<span class="key">if</span> (cssua.userAgent.ie <span class="op">&lt;</span> 8) { <span class="comment">/* proof of Pareto principle here */</span> <span class="op">}</span>
 		</code>
 
+		<p>Or testing if is a mobile browser:</p>
+
+		<code class="example syntax">
+			<span class="key">if</span> (cssua.userAgent.mobile) { <span class="comment">/* consider your audience */</span> <span class="op">}</span>
+		</code>
+
 		<h2>No browser hacks</h2>
 		<p>This allows you to target the browser rendering engine (e.g. "<code>webkit</code>"), or a specific browser (e.g. "<code>safari</code>").  The version can be targeted at the major version number (e.g. "<code>ie-5</code>" includes 5.0, 5.5) or minor (e.g. "<code>ie-5-0</code>" includes only 5.0) all the way down (e.g. "<code>ua-chrome-8-0-552-224</code>") for a very specific case.</p>
 
