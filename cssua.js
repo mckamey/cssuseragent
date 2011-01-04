@@ -3,10 +3,10 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2011-01-03-1109
+	Modified: 2011-01-04-0934
 
 	Copyright (c)2006-2011 Stephen M. McKamey
-	Distributed under the MIT license.
+	Distributed under The MIT License.
 */
 
 var cssua = (function(html, userAgent) {
@@ -20,10 +20,12 @@ var cssua = (function(html, userAgent) {
 		R_MSIE = /\b(msie|microsoft internet explorer)[\s\/]*(\d+(\.\d+)*)/,
 		R_Gecko = /rv[:](\d+(\.\d+)*).*?\bgecko[\/]\d+/,
 		R_Opera = /\bopera[\s\/]*(\d+(\.\d+)*)/,
+		R_Android = /\bandroid[\s]+(\d+(\.\d+)*)/,
+		R_iOS = /\bos[\s]+(\d+(\_\d+)*) like mac os x/,
 		R_MSPIE = /\b(mspie|microsoft pocket internet explorer)[\s\/]*(\d+(\.\d+)*)/,
 		R_iCab = /\bicab[\s\/]*(\d+(\.\d+)*)/,
 		R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\d+)*)/,
-		R_mobile = /(\w*mobile[\/]\w*|\bipad\b|\bipod\b|\w*phone\w*|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|blackberry\w*|windows ce\b|palm\w*\b|symbian\w*\b)/;
+		R_mobile = /(\w*mobile[\/]\w*|\bandroid\b|\bipad\b|\bipod\b|\w*phone\w*|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|blackberry\w*|windows ce\b|palm\w*\b|symbian\w*\b)/;
 
 	var cssua = {
 
@@ -67,6 +69,10 @@ var cssua = (function(html, userAgent) {
 				ua.mspie = RegExp.$2;
 			} else if (R_Gecko.exec(uaStr)) {
 				ua.gecko = RegExp.$1;
+			} else if (R_Android.exec(uaStr)) {
+				ua.android = RegExp.$1;
+			} else if (R_iOS.exec(uaStr)) {
+				ua.ios = RegExp.$1.split('_').join('.');
 			}
 
 			// ensure that mobile devices have indication

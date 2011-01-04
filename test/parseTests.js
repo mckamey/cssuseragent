@@ -392,7 +392,8 @@ test("Safari 3.1.1, iPod Touch", function() {
 		{
 			"webkit" : "525.18.1",
 			"mobile" : "ipod",
-			"safari" : "3.1.1"
+			"safari" : "3.1.1",
+			"ios" : "2.2.1"
 		};
 
 	var actual = cssua.parse(input);
@@ -408,7 +409,8 @@ test("Safari 4.0.4, iPad", function() {
 		{
 			"webkit" : "531.21.10",
 			"mobile" : "ipad",
-			"safari" : "4.0.4"
+			"safari" : "4.0.4",
+			"ios" : "3.2"
 		};
 
 	var actual = cssua.parse(input);
@@ -439,7 +441,8 @@ test("Safari 5.0.2, iPhone 4", function() {
 		{
 			"webkit" : "533.17.9",
 			"mobile" : "iphone",
-			"safari" : "5.0.2"
+			"safari" : "5.0.2",
+			"ios" : "4.2.1"
 		};
 
 	var actual = cssua.parse(input);
@@ -587,6 +590,40 @@ test("Opera Mini", function() {
 			"presto" : "2.5.25",
 			"mini" : "5.1.21214",
 			"mobile" : "midp"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
+test("HTC Passion, Android (webkit)", function() {
+
+	var input = "HTC Passion: Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Nexus One Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1";
+
+	var expected =
+		{
+			"webkit" : "533.1",
+			"safari" : "4.0",
+			"android" : "2.2.1",
+			"mobile" : "android"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
+test("HTC Desire, Android (webkit)", function() {
+
+	var input = "HTC Desire: Mozilla/5.0 (Linux; U; Android 2.1-update1; fr-fr; desire_A8181 Build/ERE27) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17";
+
+	var expected =
+		{
+			"webkit" : "530.17",
+			"safari" : "4.0",
+			"android" : "2.1",
+			"mobile" : "android"
 		};
 
 	var actual = cssua.parse(input);
