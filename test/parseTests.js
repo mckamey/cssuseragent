@@ -710,6 +710,58 @@ test("HTC TyTN PDA (IE)", function() {
 	same(actual, expected, "");
 });
 
+test("Nokia 3650 (Symbian)", function() {
+
+	var input = "Nokia3650/1.0 SymbianOS/6.1 Series60/1.2 Profile/MIDP-1.0 Configuration/CLDC-1.0";
+
+	var expected =
+		{
+			"nokia3650" : "1.0",
+			"symbianos" : "6.1",
+			"series60" : "1.2",
+			"mobile" : "symbianos"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
+test("Nokia 6120c (WebKit)", function() {
+
+	var input = "Mozilla/5.0 (SymbianOS/9.2; U; Series60/3.1 Nokia6120c/3.83; Profile/MIDP-2.0 Configuration/CLDC-1.1) AppleWebKit/413 (KHTML, like Gecko) Safari/413";
+
+	var expected =
+		{
+			"symbianos" : "9.2",
+			"series60" : "3.1",
+			"nokia6120c" : "3.83",
+			"webkit" : "413",
+			"mobile" : "symbianos"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
+test("Nokia 3650 (Netfront)", function() {
+
+	var input = "Mozilla/4.0 (compatible; MSIE 4.0; SmartPhone; Symbian OS/1.1.0) Netfront/3.1";
+
+	var expected =
+		{
+			"ie" : "4.0",
+			"os" : "1.1.0",
+			"netfront" : "3.1",
+			"mobile" : "smartphone"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
 test("AOL 9.6 (IE 8)", function() {
 
 	var input = "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.122; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; MS-RTC LM 8)";
