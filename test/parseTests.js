@@ -645,6 +645,23 @@ test("Nexus S, Android (WebKit)", function() {
 	same(actual, expected, "");
 });
 
+test("WinPhone 7 (IE)", function() {
+
+	var input = "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) Asus;Galaxy6";
+
+	var expected =
+		{
+			"trident" : "3.1",
+			"iemobile" : "7.0",
+			"ie" : "7.0",
+			"mobile" : "windows phone os"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
 test("Blackberry 9330", function() {
 
 	var input = "BlackBerry9330/5.0.0.913 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/104";
@@ -654,7 +671,7 @@ test("Blackberry 9330", function() {
 			"blackberry9330" : "5.0.0.913",
 			"vendorid" : "104",
 			"blackberry" : "5.0.0.913",
-			"mobile" : "blackberry9330"
+			"mobile" : "blackberry"
 		};
 
 	var actual = cssua.parse(input);
@@ -719,7 +736,7 @@ test("Nokia 3650 (Symbian)", function() {
 			"nokia3650" : "1.0",
 			"symbianos" : "6.1",
 			"series60" : "1.2",
-			"mobile" : "symbianos"
+			"mobile" : "symbian"
 		};
 
 	var actual = cssua.parse(input);
@@ -737,7 +754,7 @@ test("Nokia 6120c (WebKit)", function() {
 			"series60" : "3.1",
 			"nokia6120c" : "3.83",
 			"webkit" : "413",
-			"mobile" : "symbianos"
+			"mobile" : "symbian"
 		};
 
 	var actual = cssua.parse(input);
