@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2011-01-04-0934
+	Modified: 2011-01-06-1132
 
 	Copyright (c)2006-2011 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -25,7 +25,7 @@ var cssua = (function(html, userAgent) {
 		R_MSPIE = /\b(mspie|microsoft pocket internet explorer)[\s\/]*(\d+(\.\d+)*)/,
 		R_iCab = /\bicab[\s\/]*(\d+(\.\d+)*)/,
 		R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\d+)*)/,
-		R_mobile = /(\w*mobile[\/]\w*|\bandroid\b|\bipad\b|\bipod\b|\w*phone\w*|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|blackberry\w*|windows ce\b|palm\w*\b|symbian\w*\b)/;
+		R_mobile = /(\w*mobile[\/]\w*|\bandroid\b|\bipad\b|\bipod\b|\w*phone\w*|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|blackberry\w*|\bwebos\b|windows ce\b|palm\w*\b|symbian\w*\b)/;
 
 	var cssua = {
 
@@ -85,7 +85,7 @@ var cssua = (function(html, userAgent) {
 
 			// version standardization
 			if (ua.safari) {
-				if (ua.chrome || ua.blackberry) {
+				if (ua.chrome || ua.android || ua.blackberry || ua.webos) {
 					delete ua.safari;
 
 				} else if (ua.version) {

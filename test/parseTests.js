@@ -597,14 +597,13 @@ test("Opera Mini", function() {
 	same(actual, expected, "");
 });
 
-test("HTC Passion, Android (webkit)", function() {
+test("Nexus One, Android (WebKit)", function() {
 
-	var input = "HTC Passion: Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Nexus One Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1";
+	var input = "Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Nexus One Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1";
 
 	var expected =
 		{
 			"webkit" : "533.1",
-			"safari" : "4.0",
 			"android" : "2.2.1",
 			"mobile" : "android"
 		};
@@ -614,15 +613,30 @@ test("HTC Passion, Android (webkit)", function() {
 	same(actual, expected, "");
 });
 
-test("HTC Desire, Android (webkit)", function() {
+test("Nexus One, Android (WebKit)", function() {
 
-	var input = "HTC Desire: Mozilla/5.0 (Linux; U; Android 2.1-update1; fr-fr; desire_A8181 Build/ERE27) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17";
+	var input = "Mozilla/5.0 (Linux; U; Android 2.1-update1; fr-fr; desire_A8181 Build/ERE27) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17";
 
 	var expected =
 		{
 			"webkit" : "530.17",
-			"safari" : "4.0",
 			"android" : "2.1",
+			"mobile" : "android"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
+test("Nexus S, Android (WebKit)", function() {
+
+	var input = "Mozilla/5.0 (Linux; U; Android 2.3.1; en-us; Nexus S Build/GRH78) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1";
+
+	var expected =
+		{
+			"webkit" : "533.1",
+			"android" : "2.3.1",
 			"mobile" : "android"
 		};
 
@@ -657,6 +671,38 @@ test("Blackberry Torch (WebKit)", function() {
 			"webkit" : "534.1",
 			"blackberry" : "9800",
 			"mobile" : "blackberry"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
+test("Palm Pre (WebKit)", function() {
+
+	var input = "Mozilla/5.0 (webOS/1.0; U; en-US) AppleWebKit/525.27.1 (KHTML, like Gecko) Version/1.0 Safari/525.27.1 Pre/1.0";
+
+	var expected =
+		{
+			"webos" : "1.0",
+			"webkit" : "525.27.1",
+			"pre" : "1.0",
+			"mobile" : "webos"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, "");
+});
+
+test("HTC TyTN PDA (IE)", function() {
+
+	var input = "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)";
+
+	var expected =
+		{
+			"ie" : "6.0",
+			"mobile" : "windows ce"
 		};
 
 	var actual = cssua.parse(input);
