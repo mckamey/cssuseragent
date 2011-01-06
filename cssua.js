@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2011-01-06-1227
+	Modified: 2011-01-06-1308
 
 	Copyright (c)2006-2011 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -22,10 +22,11 @@ var cssua = (function(html, userAgent) {
 		R_Opera = /\bopera[\s\/]*(\d+(\.\d+)*)/,
 		R_Android = /\bandroid[\s]+(\d+(\.\d+)*)/,
 		R_iOS = /\bos[\s]+(\d+(\_\d+)*) like mac os x/,
+		R_WinPhone = /\bwindows phone os (\d+(\_\d+)*)/,
 		R_MSPIE = /\b(mspie|microsoft pocket internet explorer)[\s\/]*(\d+(\.\d+)*)/,
 		R_iCab = /\bicab[\s\/]*(\d+(\.\d+)*)/,
 		R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\d+)*)/,
-		R_mobile = /(\w*mobile[\/]\w*|\bandroid\b|\bipad\b|\bipod\b|blackberry\w*|\bwebos\b|windows ce\b|palm\w*\b|symbian\w*\b|\w*phone\w*|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b)/;
+		R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bblackberry|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
 
 	var cssua = {
 
@@ -73,6 +74,8 @@ var cssua = (function(html, userAgent) {
 				ua.android = RegExp.$1;
 			} else if (R_iOS.exec(uaStr)) {
 				ua.ios = RegExp.$1.split('_').join('.');
+			} else if (R_WinPhone.exec(uaStr)) {
+				ua.winphone = RegExp.$1;
 			}
 
 			// ensure that mobile devices have indication
@@ -116,10 +119,10 @@ var cssua = (function(html, userAgent) {
 
 		/*string*/ format : function (/*Map<string,string>*/ ua) {
 			/*string*/ function format(/*string*/ b, /*string*/ v) {
-				b = b.split('.').join('-');
+				b = b.split(' ').join('_').split('.').join('-');
 				/*string*/ var css = PREFIX+b;
 				if (v) {
-					v = v.split('.').join('-');
+					v = v.split(' ').join('_').split('.').join('-');
 					var i = v.indexOf('-');
 					while (i > 0) {
 						// loop through chopping last '-' to end off

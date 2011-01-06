@@ -77,4 +77,21 @@ test("Safari 4.0.4, iPad", function() {
 	same(actual, expected, "");
 });
 
+test("IE 7, WinPhone", function() {
+
+	var input =
+		{
+			"trident" : "3.1",
+			"iemobile" : "7.0",
+			"ie" : "7.0",
+			"mobile" : "windows phone os"
+		};
+
+	var expected = " ua-trident ua-trident-3 ua-trident-3-1 ua-iemobile ua-iemobile-7 ua-iemobile-7-0 ua-ie ua-ie-7 ua-ie-7-0 ua-mobile ua-mobile-windows_phone_os";
+
+	var actual = cssua.format(input);
+
+	same(actual, expected, "");
+});
+
 }catch(ex){alert(ex);}
