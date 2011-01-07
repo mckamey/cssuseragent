@@ -26,7 +26,7 @@ var cssua = (function(html, userAgent) {
 		R_MSPIE = /\b(mspie|microsoft pocket internet explorer)[\s\/]*(\d+(\.\d+)*)/,
 		R_iCab = /\bicab[\s\/]*(\d+(\.\d+)*)/,
 		R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\d+)*)/,
-		R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bblackberry|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
+		R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bblackberry|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bj2me\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
 
 	var cssua = {
 
