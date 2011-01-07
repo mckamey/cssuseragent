@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CssUserAgent (cssua.js) FAQ</title>
+
+	<link href="test/styles/main.css" rel="stylesheet" type="text/css" />
+
+	<script src="cssua.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+	<h1 class="logo"><a href="../"><span class="sel">.css</span>{<span class="rule">user</span>:<span class="expr">agent</span>;}</a></h1>
+
+	<h2>Frequently Asked Questions</h2>
+
+	<h3>Why CssUserAgent?</h3>
+	<p>CssUserAgent was started back in 2006 as a less chaotic solution to fixing browser-specific quirks when polishing up web app UIs.
+	Originally, it was part of a larger Ajax framework that has since been modularized into smaller independent libraries.</p>
+	<p>The intention is to build valid standards-based cross-plaform CSS and sparingly use CssUserAgent to finish the job.
+	Test your code in many browsers as early and frequently as you can.
+	Don't just design for your favorite browser and once finished look at it in everything else.
+	This tends to create more workarounds then are necessary.</p>
+
+	<h3>Why would you use CssUserAgent and subsequently (kill the Internet | disrupt the natural order of the digital universe | etc.)?</h3>
+	<p><em>Chill, buddy.</em> It's just a tool. If you don't need it, don't use it. The fact is there are tons of people out there writing cryptic CSS hacks and this gives them a better option.</p>
+	<p>UserAgent-sniffing, in all its various forms, gets lots of flak in the web UI community. Typically this is because it is abused by those new to the trade. L337 haxors tend to love to bash any pragmatic shortcuts which trade code purity for time.</p>
+	<p>The reality is, as in all of life, there are trade-offs to be made. Beware "always" and "never" statements; choose wisely and use shortcuts sparingly. Deep breaths. It's going to be okay.</p>
+
+	<h3>Why bother creating CssUserAgent when <a href="http://www.modernizr.com" target="_blank">Modernizr</a> exists?</h3>
+	<p>CssUserAgent actually predates Modernizr by a couple years; however, this is a valid point as Modernizr is a great tool. The existence of both is further evidence that browser differentiating layout is indeed a problem in need of a solution.</p>
+	<p>These two tools serve slightly different but complimentary purposes. Modernizr uses feature detection to allow differentiating layout. This works well for feature-oriented differences but some layout differences aren't necessarily the result of missing features or cannot be detected through feature testing.
+	See the <a href="https://github.com/Modernizr/Modernizr/wiki/Undetectables" target="_blank">"Undetectables" topic in Modernizr's docs</a> for specific examples.
+	Sometimes you just need a slightly different padding or font size for one browser.</p>
+	<p>Modernizr may or may not be the right tool for the job. Keep in mind, Modernizr is also about 4x larger and requires more complex DOM testing logic on each page load. Again choose your tools based upon your needs.</p>
+
+	<h3>What are some other alternative techniques to CssUserAgent?</h3>
+	<p>As mentioned earlier, <a href="http://paulirish.com/2009/browser-specific-css-hacks/" target="_blank">CSS hacks</a> have been the traditional solution.
+	These techniques rely upon bugs within various browser implementations to be able to target specific browsers.
+	CSS hacks have many downsides, not the least of which is they typically employ invalid CSS syntax which could be misinterpreted by CSS compaction utilities.
+	Another common issue is their behavior is largely unknown for future browsers.</p>
+	<p>Since Internet Explorer typically is the greatest deviant in web design, another common solution uses different stylesheets for IE by <a href="">using IE-only conditional comments</a> to include or exclude certain &lt;link/&gt; or &lt;style/&gt; tags.
+	This only applies to IE, and tends to become difficult to maintainable in larger applications.
+	Even worse is that seemingly valid uses of conditional comments <a href="http://webforscher.wordpress.com/2010/05/20/ie-6-slowing-down-ie-8/" target="_blank">can drastically slow down page load in IE-8</a>.</p>
+	<p>Another solution which only targets Internet Explorer
+	<a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/" target="_blank">uses IE-only conditional comments to apply classes to the HTML tag</a>.
+	This clever solution has the advantage of not requiring CSS Hacks or JavaScript, but only works with IE and makes your markup ugly as sin.</p>
+
+	<h3>What else should I know?</h3>
+	<p>The most important caveat to know is that CssUserAgent requires JavaScript.
+	This typically isn't an issue for most users. But be warned not to rely upon browser-specific CSS classes for the accessibility of your content.
+	As mentioned earlier, this is intended for layout fixes and polish not core business logic.</p>
+
+	<footer>Copyright &copy; 2006-2011 Stephen M. McKamey</footer>
+	<script src="/ga.js" type="text/javascript" defer></script>
+</body>
+</html>
