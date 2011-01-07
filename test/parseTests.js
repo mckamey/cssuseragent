@@ -589,7 +589,7 @@ test("Opera Mini", function() {
 			"opera" : "9.80",
 			"presto" : "2.5.25",
 			"mini" : "5.1.21214",
-			"mobile" : "midp"
+			"mobile" : "j2me"
 		};
 
 	var actual = cssua.parse(input);
