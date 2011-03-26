@@ -101,6 +101,20 @@
 	border-color: #2BAB33;
 	border-top-color: #FFD600;
 	border-left-color: #FFD600;
+	background-image: url(browsers/Chrome11_128.png);
+}
+.ua-chrome-0 .browser-info,
+.ua-chrome-1 .browser-info,
+.ua-chrome-2 .browser-info,
+.ua-chrome-3 .browser-info,
+.ua-chrome-4 .browser-info,
+.ua-chrome-5 .browser-info,
+.ua-chrome-6 .browser-info,
+.ua-chrome-7 .browser-info,
+.ua-chrome-8 .browser-info,
+.ua-chrome-9 .browser-info,
+.ua-chrome-10 .browser-info
+{
 	background-image: url(browsers/Chrome_128.png);
 }
 .ua-shiira .browser-info
