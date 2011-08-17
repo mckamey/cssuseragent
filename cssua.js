@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2011-01-10-1101
+	Modified: 2011-08-17-1322
 
 	Copyright (c)2006-2011 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -167,10 +167,13 @@ var cssua = (function(html, userAgent) {
 	// append CSS classes to HTML node
 	var ua = cssua.format(cssua.ua);
 	if (html.className) {
+		html.className = html.className.replace(/no-js/gi,'');
 		html.className += ua;
+		
 	} else {
 		html.className = ua.substr(1);
 	}
+	html.className += ' js';
 
 	return cssua;
 })(document.documentElement, navigator.userAgent);
