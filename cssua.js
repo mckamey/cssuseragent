@@ -11,7 +11,7 @@
 
 var cssua = (function(html, userAgent) {
 
-	/*const string*/ var PREFIX = " ua-";
+	/*const string*/ var PREFIX = ' ua-';
 
 	/*jslint regexp: false, browser: true */
 
@@ -33,7 +33,7 @@ var cssua = (function(html, userAgent) {
 		/*Map<string,string>*/ parse : function(/*string*/ uaStr) {
 			/*Map<string,string>*/ var ua = {};
 
-			uaStr = (""+uaStr).toLowerCase();
+			uaStr = (''+uaStr).toLowerCase();
 			if (!uaStr) {
 				return ua;
 			}
@@ -44,10 +44,10 @@ var cssua = (function(html, userAgent) {
 				for (var i=0; i<raw.length; i++) {
 					var s = raw[i].indexOf('/'),
 						b = raw[i].substring(0, s);
-					if (b && b !== "mozilla") {
+					if (b && b !== 'mozilla') {
 						// shorten this common engine
-						if (b === "applewebkit") {
-							b = "webkit";
+						if (b === 'applewebkit') {
+							b = 'webkit';
 						}
 						ua[b] = raw[i].substr(s+1);
 					}
@@ -96,13 +96,13 @@ var cssua = (function(html, userAgent) {
 
 				} else {
 					ua.safari = ({
-						"419": "2.0.4",
-						"417": "2.0.3",
-						"416": "2.0.2",
-						"412": "2.0",
-						"312": "1.3",
-						"125": "1.2",
-						"85": "1.0"
+						'419': '2.0.4',
+						'417': '2.0.3',
+						'416': '2.0.2',
+						"412": '2.0',
+						'312': '1.3',
+						'125': '1.2',
+						'85': '1.0'
 					})[parseInt(ua.safari, 10)] || ua.safari;
 				}
 
@@ -135,7 +135,7 @@ var cssua = (function(html, userAgent) {
 				return css;
 			}
 
-			var	uaCss = "";
+			var	uaCss = '';
 			for (var b in ua) {
 				if (b && ua.hasOwnProperty(b)) {
 					uaCss += format(b, ua[b]);
@@ -148,13 +148,13 @@ var cssua = (function(html, userAgent) {
 
 		/* Encodes parsed userAgent object as a compact URI-Encoded key-value collection */
 		/*string*/ encode : function(/*Map<string,string>*/ ua) {
-			var query = "";
+			var query = '';
 			for (var b in ua) {
 				if (b && ua.hasOwnProperty(b)) {
 					if (query) {
-						query += "&";
+						query += '&';
 					}
-					query += encodeURIComponent(b)+"="+encodeURIComponent(ua[b]);
+					query += encodeURIComponent(b)+'='+encodeURIComponent(ua[b]);
 				}
 			}
 			return query;
