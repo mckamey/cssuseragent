@@ -256,6 +256,11 @@
 	background-image: url(browsers/Mozilla_128.png);
 }
 
+.no-js .js-enabled,
+.js .js-disabled {
+	display: none;
+}
+
 @media print
 {
 	.browser-info

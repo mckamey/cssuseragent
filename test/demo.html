@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
 	<meta charset="UTF-8">
 	<title>CssUserAgent (cssua.js) Demo</title>
@@ -19,24 +19,25 @@
 
 	<div class="browser-info">
 		<h4>Looks like you're using&hellip;</h4>
-		<script type="text/javascript">
-			(function() {
-				document.write("<ul class=\"zebra\">");
-				var i=0, ua = cssua.userAgent;
-				for (var key in ua) {
-					document.write("<li class=\"zebra-item");
-					if (i++ % 2) {
-						document.write(" zebra-item-alt");
+		<ul class="zebra">
+			<li class="zebra-item"><strong>javascript</strong> <em class="js-disabled">disabled</em><span class="js-enabled">enabled</span></li>
+			<script type="text/javascript">
+				(function() {
+					var i=1, ua = cssua.userAgent;
+					for (var key in ua) {
+						document.write("<li class=\"zebra-item");
+						if (i++ % 2) {
+							document.write(" zebra-item-alt");
+						}
+						document.write("\"><strong>");
+						document.write(key)
+						document.write("</strong> ");
+						document.write(ua[key]);
+						document.write("</li>");
 					}
-					document.write("\"><strong>");
-					document.write(key)
-					document.write("</strong> ");
-					document.write(ua[key]);
-					document.write("</li>");
-				}
-				document.write("</ul>");
-			})()
-		</script>
+				})()
+			</script>
+		</ul>
 
 		<h4 style="margin:2em 0 0 0;">Avoid CSS hacks!</h4>
 
@@ -251,7 +252,7 @@
 
 	<footer>
 		<div style="float:left"><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cssuseragent.org/" data-text="Avoid CSS hacks! Use CssUserAgent to work around browser-specific quirks" data-count="none"></a></div>
-		Copyright &copy; 2006-2011 Stephen M. McKamey
+		Copyright &copy; 2006-2011 <a href="http://mck.me">Stephen M. McKamey</a>
 	</footer>
 	<script src="http://platform.twitter.com/widgets.js" type="text/javascript" defer="defer"></script>
 	<script src="/ga.js" type="text/javascript" defer></script>
