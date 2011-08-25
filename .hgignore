@@ -1,1 +1,8 @@
-glob:ga.js
+\.DS_Store
+\.classpath
+\.project
+\.settings
+\.iml
+\.ipr
+\.iws
+test/ga.js
