@@ -9,6 +9,30 @@ try{
 	http://www.zytrax.com/tech/web/mobile_ids.html
 */
 
+module("cssua js/no-js");
+
+test("&lt;html&gt; 'no-js' class missing", function() {
+
+	var input = document.documentElement.className || "";
+
+	var expected = "missing";
+
+	var actual = input.indexOf("no-js") < 0 ? "missing" : "present";
+
+	same(actual, expected, "");
+});
+
+test("&lt;html&gt; 'js' class present", function() {
+
+	var input = document.documentElement.className || "";
+
+	var expected = "present";
+
+	var actual = input.indexOf("js") < 0 ? "missing" : "present";
+
+	same(actual, expected, "");
+});
+
 module("cssua.parse()");
 
 test("IE 5.0, Windows", function() {
