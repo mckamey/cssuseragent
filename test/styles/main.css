@@ -1,14 +1,10 @@
-@font-face
-{
+@font-face {
 	font-family: 'LeagueGothicRegular';
-	src: local('☺'), url(fonts/League_Gothic-webfont.ttf) format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face
-{
-	font-family: 'LeagueGothicRegularIE';
-	src: url(fonts/League_Gothic-webfont.eot);
+	src: url('fonts/League_Gothic-webfont.eot');							/* IE9 Compat Modes */
+	src: url('fonts/League_Gothic-webfont.eot?iefix') format('eot'),		/* IE6-IE8 */
+	     url('fonts/League_Gothic-webfont.woff') format('woff'),			/* Modern Browsers */
+	     url('fonts/League_Gothic-webfont.ttf')  format('truetype'),		/* Safari, Android, iOS */
+	     url('fonts/League_Gothic-webfont.svg#svgFontName') format('svg');	/* Legacy iOS */
 	font-weight: normal;
 	font-style: normal;
 }
@@ -35,10 +31,6 @@ body
 	text-decoration: none;
 	text-shadow: 0px -1px 1px silver;
 	white-space: nowrap;
-}
-.ua-ie .logo, .ua-ie .logo a:link, .ua-ie .logo a:hover, .ua-ie .logo a:active, .ua-ie .logo a:visited
-{
-	font-family: LeagueGothicRegularIE, 'League Gothic', Helvetica, Impact, Arial, sans-serif;
 }
 
 .logo .sel
