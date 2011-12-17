@@ -46,7 +46,7 @@ test("IE 5.0, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("IE 5.5, Windows", function() {
@@ -60,7 +60,7 @@ test("IE 5.5, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("IE 6.0, Windows", function() {
@@ -74,7 +74,7 @@ test("IE 6.0, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("IE 7.0, Windows", function() {
@@ -88,7 +88,7 @@ test("IE 7.0, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("IE 8.0, Windows", function() {
@@ -103,7 +103,7 @@ test("IE 8.0, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("IE 9.0 Beta, Windows", function() {
@@ -118,7 +118,7 @@ test("IE 9.0 Beta, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Firefox 1.5, Windows", function() {
@@ -133,7 +133,7 @@ test("Firefox 1.5, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Firefox 2.0, Ubuntu", function() {
@@ -149,7 +149,7 @@ test("Firefox 2.0, Ubuntu", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Firefox 3.0, Windows", function() {
@@ -164,7 +164,7 @@ test("Firefox 3.0, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Firefox 3.5, Fedora", function() {
@@ -174,13 +174,13 @@ test("Firefox 3.5, Fedora", function() {
 	var expected =
 		{
 			"gecko" : "1.9.1.15",
-			"fedora" : "3.5.15",
+			"fedora" : "3.5.15-1.fc12",
 			"firefox" : "3.5.15"
 		};
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Firefox 3.6, Windows", function() {
@@ -195,7 +195,7 @@ test("Firefox 3.6, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Firefox 4.0b7, Windows", function() {
@@ -204,16 +204,16 @@ test("Firefox 4.0b7, Windows", function() {
 
 	var expected =
 		{
-			"gecko" : "2.0",
-			"firefox" : "4.0"
+			"gecko" : "2.0b7",
+			"firefox" : "4.0b7"
 		};
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 0.2, Windows", function() {
+test("Chrome 0.2, Windows", function() {
 
 	var input = "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.30 Safari/525.13";
 
@@ -225,10 +225,10 @@ test("Chome 0.2, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 1.0, Windows", function() {
+test("Chrome 1.0, Windows", function() {
 
 	var input = "Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19";
 
@@ -240,10 +240,10 @@ test("Chome 1.0, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 2, Windows", function() {
+test("Chrome 2, Windows", function() {
 
 	var input = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/530.6 (KHTML, like Gecko) Chrome/2.0.174.0 Safari/530.6";
 
@@ -255,10 +255,10 @@ test("Chome 2, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 3, Linux", function() {
+test("Chrome 3, Linux", function() {
 
 	var input = "Mozilla/5.0 (X11; U; Linux i686 (x86_64); en-US) AppleWebKit/532.0 (KHTML, like Gecko) Chrome/3.0.198.0 Safari/532.0";
 
@@ -270,10 +270,10 @@ test("Chome 3, Linux", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 4, Max OS X", function() {
+test("Chrome 4, Max OS X", function() {
 
 	var input = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; en-US) AppleWebKit/532.0 (KHTML, like Gecko) Chrome/4.0.207.0 Safari/532.0";
 
@@ -285,10 +285,10 @@ test("Chome 4, Max OS X", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 5, Max OS X", function() {
+test("Chrome 5, Max OS X", function() {
 
 	var input = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_6; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4";
 
@@ -300,10 +300,10 @@ test("Chome 5, Max OS X", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 6, Windows", function() {
+test("Chrome 6, Windows", function() {
 
 	var input = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/6.0.458.1 Safari/534.3";
 
@@ -315,10 +315,10 @@ test("Chome 6, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 7, Linux", function() {
+test("Chrome 7, Linux", function() {
 
 	var input = "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/7.0.544.0 Safari/534.10";
 
@@ -330,10 +330,10 @@ test("Chome 7, Linux", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 8, Windows", function() {
+test("Chrome 8, Windows", function() {
 
 	var input = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/8.0.552.224 Safari/534.10";
 
@@ -345,10 +345,10 @@ test("Chome 8, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 9 Beta, Windows", function() {
+test("Chrome 9 Beta, Windows", function() {
 
 	var input = "Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.19 Safari/534.13";
 
@@ -360,10 +360,10 @@ test("Chome 9 Beta, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
-test("Chome 10 Dev, Windows", function() {
+test("Chrome 10 Dev, Windows", function() {
 
 	var input = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.15 (KHTML, like Gecko) Chrome/10.0.612.3 Safari/534.15";
 
@@ -375,7 +375,7 @@ test("Chome 10 Dev, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Safari 1.0, Mac OS X", function() {
@@ -390,7 +390,7 @@ test("Safari 1.0, Mac OS X", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Safari 2.0.4, Mac OS X", function() {
@@ -405,7 +405,7 @@ test("Safari 2.0.4, Mac OS X", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Safari 3.1.1, iPod Touch", function() {
@@ -422,7 +422,7 @@ test("Safari 3.1.1, iPod Touch", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Safari 4.0.4, iPad", function() {
@@ -439,7 +439,7 @@ test("Safari 4.0.4, iPad", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Safari 5.0.1, Mac OS X", function() {
@@ -454,7 +454,7 @@ test("Safari 5.0.1, Mac OS X", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Safari 5.0.2, iPhone 4", function() {
@@ -471,7 +471,7 @@ test("Safari 5.0.2, iPhone 4", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Safari 5.0.3, Windows", function() {
@@ -486,7 +486,7 @@ test("Safari 5.0.3, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera 5.11", function() {
@@ -500,7 +500,7 @@ test("Opera 5.11", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera 6.12", function() {
@@ -514,7 +514,7 @@ test("Opera 6.12", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera 7.54", function() {
@@ -528,7 +528,7 @@ test("Opera 7.54", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera 8.5", function() {
@@ -542,7 +542,7 @@ test("Opera 8.5", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera 9.62", function() {
@@ -557,7 +557,7 @@ test("Opera 9.62", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera 10.62, Linux", function() {
@@ -572,7 +572,7 @@ test("Opera 10.62, Linux", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera 11, Windows", function() {
@@ -587,7 +587,7 @@ test("Opera 11, Windows", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera 11, Spoofing IE8", function() {
@@ -601,7 +601,7 @@ test("Opera 11, Spoofing IE8", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Opera Mini", function() {
@@ -618,7 +618,7 @@ test("Opera Mini", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Nexus One, Android (WebKit)", function() {
@@ -634,7 +634,7 @@ test("Nexus One, Android (WebKit)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Nexus One, Android (WebKit)", function() {
@@ -650,7 +650,7 @@ test("Nexus One, Android (WebKit)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Nexus S, Android (WebKit)", function() {
@@ -666,7 +666,7 @@ test("Nexus S, Android (WebKit)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("WinPhone 7 (IE)", function() {
@@ -683,7 +683,7 @@ test("WinPhone 7 (IE)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Blackberry 9330", function() {
@@ -700,7 +700,7 @@ test("Blackberry 9330", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Blackberry Torch (WebKit)", function() {
@@ -716,7 +716,7 @@ test("Blackberry Torch (WebKit)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Palm Pre (WebKit)", function() {
@@ -733,7 +733,7 @@ test("Palm Pre (WebKit)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("HTC TyTN PDA (IE)", function() {
@@ -748,7 +748,7 @@ test("HTC TyTN PDA (IE)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Nokia 3650 (Symbian)", function() {
@@ -765,7 +765,7 @@ test("Nokia 3650 (Symbian)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Nokia 6120c (WebKit)", function() {
@@ -783,7 +783,7 @@ test("Nokia 6120c (WebKit)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Nokia 3650 (Netfront)", function() {
@@ -800,7 +800,7 @@ test("Nokia 3650 (Netfront)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("AOL 9.6 (IE 8)", function() {
@@ -816,7 +816,7 @@ test("AOL 9.6 (IE 8)", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
 });
 
 test("Googlebot 2.1", function() {
@@ -830,7 +830,66 @@ test("Googlebot 2.1", function() {
 
 	var actual = cssua.parse(input);
 
-	same(actual, expected, "");
+	same(actual, expected, input);
+});
+
+test("Nintendo 3DS", function() {
+
+	var input = "Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7455.EU";
+
+	var expected =
+		{
+			"nintendo 3ds" : "1.7455.eu"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test("Nintendo Wii", function() {
+
+	var input = "Opera/9.30 (Nintendo Wii; U; ; 3642; en)";
+
+	var expected =
+		{
+			"opera" : "9.30",
+			"nintendo wii" : "9.30"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test("PS3", function() {
+
+	var input = "Mozilla/5.0 (PLAYSTATION 3; 1.00)";
+
+	var expected =
+		{
+			"playstation" : "3"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test("PlayBook", function() {
+
+	var input = "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 1.0.0; en-US) AppleWebKit/534.8+ (KHTML, like Gecko) Version/0.0.1 Safari/534.8+";
+
+	var expected =
+		{
+			"webkit" : "534.8",
+			"rim tablet os" : "1.0.0",
+			"mobile" : "tablet"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
 });
 
 }catch(ex){alert(ex);}
