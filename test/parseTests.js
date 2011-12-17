@@ -41,9 +41,9 @@ test('IE 5.0, Windows', function() {
 
 	var expected =
 		{
-			'windows': '98',
-			'desktop': 'windows',
-			'ie': '5.0'
+			windows: '98',
+			desktop: 'windows',
+			ie: '5.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -57,11 +57,11 @@ test('IE 5.5, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '5.0',
-			'net clr': '3.5.21022',
-			'ms-rtc lm': '8',
-			'desktop': 'windows',
-			'ie': '5.5'
+			windows_nt: '5.0',
+			net_clr: '3.5.21022',
+			'ms-rtc_lm': '8',
+			desktop: 'windows',
+			ie: '5.5'
 		};
 
 	var actual = cssua.parse(input);
@@ -75,10 +75,10 @@ test('IE 6.0, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.0',
-			'net clr': '3.5.30729',
-			'desktop': 'windows',
-			'ie': '6.0'
+			windows_nt: '6.0',
+			net_clr: '3.5.30729',
+			desktop: 'windows',
+			ie: '6.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -92,10 +92,10 @@ test('IE 7.0, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '5.2',
-			'net clr': '3.5.30729',
-			'desktop': 'windows',
-			'ie': '7.0'
+			windows_nt: '5.2',
+			net_clr: '3.5.30729',
+			desktop: 'windows',
+			ie: '7.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -109,11 +109,11 @@ test('IE 8.0, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.1',
-			'trident': '4.0',
-			'net clr': '3.5.30729',
-			'desktop': 'windows',
-			'ie': '8.0'
+			windows_nt: '6.1',
+			trident: '4.0',
+			net_clr: '3.5.30729',
+			desktop: 'windows',
+			ie: '8.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -127,11 +127,11 @@ test('IE 9.0 Beta, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.1',
-			'trident': '5.0',
-			'net clr': '3.5.30729',
-			'desktop': 'windows',
-			'ie': '9.0'
+			windows_nt: '6.1',
+			trident: '5.0',
+			net_clr: '3.5.30729',
+			desktop: 'windows',
+			ie: '9.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -145,8 +145,8 @@ test('MSPIE 2.0, Windows CE', function() {
 
 	var expected =
 		{
-			'mspie': '2.0',
-			'mobile': 'windows ce'
+			mspie: '2.0',
+			mobile: 'windows ce'
 		};
 
 	var actual = cssua.parse(input);
@@ -160,10 +160,10 @@ test('Firefox 1.5, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '5.2',
-			'gecko': '1.8.0.9',
-			'firefox': '1.5.0.9',
-			'desktop': 'windows'
+			windows_nt: '5.2',
+			gecko: '1.8.0.9',
+			firefox: '1.5.0.9',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -177,10 +177,10 @@ test('Firefox 2.0, Ubuntu', function() {
 
 	var expected =
 		{
-			'gecko': '1.8.1.19',
-			'ubuntu': '7.10',
-			'firefox': '2.0.0.19',
-			'desktop': 'linux'
+			gecko: '1.8.1.19',
+			ubuntu: '7.10',
+			firefox: '2.0.0.19',
+			desktop: 'linux'
 		};
 
 	var actual = cssua.parse(input);
@@ -194,11 +194,11 @@ test('Firefox 3.0, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '5.2',
-			'gecko': '1.9.0.19',
-			'firefox': '3.0.19',
-			'net clr': '3.5.30729',
-			'desktop': 'windows'
+			windows_nt: '5.2',
+			gecko: '1.9.0.19',
+			firefox: '3.0.19',
+			net_clr: '3.5.30729',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -212,10 +212,10 @@ test('Firefox 3.5, Fedora', function() {
 
 	var expected =
 		{
-			'gecko': '1.9.1.15',
-			'fedora': '3.5.15-1.fc12',
-			'firefox': '3.5.15',
-			'desktop': 'linux'
+			gecko: '1.9.1.15',
+			fedora: '3.5.15-1.fc12',
+			firefox: '3.5.15',
+			desktop: 'linux'
 		};
 
 	var actual = cssua.parse(input);
@@ -229,11 +229,11 @@ test('Firefox 3.6, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.1',
-			'gecko': '1.9.2.13',
-			'firefox': '3.6.13',
-			'net clr': '3.5.30729',
-			'desktop': 'windows'
+			windows_nt: '6.1',
+			gecko: '1.9.2.13',
+			firefox: '3.6.13',
+			net_clr: '3.5.30729',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -247,10 +247,10 @@ test('Firefox 4.0b7, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.1',
-			'gecko': '2.0b7',
-			'firefox': '4.0b7',
-			'desktop': 'windows'
+			windows_nt: '6.1',
+			gecko: '2.0b7',
+			firefox: '4.0b7',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -264,10 +264,10 @@ test('Chrome 0.2, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.0',
-			'chrome': '0.2.149.30',
-			'desktop': 'windows',
-			'webkit': '525.13'
+			windows_nt: '6.0',
+			chrome: '0.2.149.30',
+			desktop: 'windows',
+			webkit: '525.13'
 		};
 
 	var actual = cssua.parse(input);
@@ -281,10 +281,10 @@ test('Chrome 1.0, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '5.2',
-			'chrome': '1.0.154.53',
-			'desktop': 'windows',
-			'webkit': '525.19'
+			windows_nt: '5.2',
+			chrome: '1.0.154.53',
+			desktop: 'windows',
+			webkit: '525.19'
 		};
 
 	var actual = cssua.parse(input);
@@ -298,10 +298,10 @@ test('Chrome 2, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '5.1',
-			'chrome': '2.0.174.0',
-			'desktop': 'windows',
-			'webkit': '530.6'
+			windows_nt: '5.1',
+			chrome: '2.0.174.0',
+			desktop: 'windows',
+			webkit: '530.6'
 		};
 
 	var actual = cssua.parse(input);
@@ -315,9 +315,9 @@ test('Chrome 3, Linux', function() {
 
 	var expected =
 		{
-			'chrome': '3.0.198.0',
-			'desktop': 'linux',
-			'webkit': '532.0'
+			chrome: '3.0.198.0',
+			desktop: 'linux',
+			webkit: '532.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -331,10 +331,10 @@ test('Chrome 4, Max OS X', function() {
 
 	var expected =
 		{
-			'chrome': '4.0.207.0',
-			'desktop': 'macintosh',
-			'mac os x': '10.6.1',
-			'webkit': '532.0'
+			chrome: '4.0.207.0',
+			desktop: 'macintosh',
+			mac_os_x: '10.6.1',
+			webkit: '532.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -348,10 +348,10 @@ test('Chrome 5, Max OS X', function() {
 
 	var expected =
 		{
-			'chrome': '5.0.375.99',
-			'desktop': 'macintosh',
-			'mac os x': '10.5.6',
-			'webkit': '533.4'
+			chrome: '5.0.375.99',
+			desktop: 'macintosh',
+			mac_os_x: '10.5.6',
+			webkit: '533.4'
 		};
 
 	var actual = cssua.parse(input);
@@ -365,10 +365,10 @@ test('Chrome 6, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '5.1',
-			'chrome': '6.0.458.1',
-			'desktop': 'windows',
-			'webkit': '534.3'
+			windows_nt: '5.1',
+			chrome: '6.0.458.1',
+			desktop: 'windows',
+			webkit: '534.3'
 		};
 
 	var actual = cssua.parse(input);
@@ -382,9 +382,9 @@ test('Chrome 7, Linux', function() {
 
 	var expected =
 		{
-			'chrome': '7.0.544.0',
-			'desktop': 'linux',
-			'webkit': '534.10'
+			chrome: '7.0.544.0',
+			desktop: 'linux',
+			webkit: '534.10'
 		};
 
 	var actual = cssua.parse(input);
@@ -398,10 +398,10 @@ test('Chrome 8, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.1',
-			'chrome': '8.0.552.224',
-			'desktop': 'windows',
-			'webkit': '534.10'
+			windows_nt: '6.1',
+			chrome: '8.0.552.224',
+			desktop: 'windows',
+			webkit: '534.10'
 		};
 
 	var actual = cssua.parse(input);
@@ -415,10 +415,10 @@ test('Chrome 9 Beta, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '5.2',
-			'chrome': '9.0.597.19',
-			'desktop': 'windows',
-			'webkit': '534.13'
+			windows_nt: '5.2',
+			chrome: '9.0.597.19',
+			desktop: 'windows',
+			webkit: '534.13'
 		};
 
 	var actual = cssua.parse(input);
@@ -432,10 +432,10 @@ test('Chrome 10 Dev, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.1',
-			'chrome': '10.0.612.3',
-			'desktop': 'windows',
-			'webkit': '534.15'
+			windows_nt: '6.1',
+			chrome: '10.0.612.3',
+			desktop: 'windows',
+			webkit: '534.15'
 		};
 
 	var actual = cssua.parse(input);
@@ -449,9 +449,9 @@ test('Safari 1.0, Mac OS X', function() {
 
 	var expected =
 		{
-			'safari': '1.0',
-			'desktop': 'macintosh',
-			'webkit': '85'
+			safari: '1.0',
+			desktop: 'macintosh',
+			webkit: '85'
 		};
 
 	var actual = cssua.parse(input);
@@ -465,9 +465,9 @@ test('Safari 2.0.4, Mac OS X', function() {
 
 	var expected =
 		{
-			'safari': '2.0.4',
-			'desktop': 'macintosh',
-			'webkit': '418.8'
+			safari: '2.0.4',
+			desktop: 'macintosh',
+			webkit: '418.8'
 		};
 
 	var actual = cssua.parse(input);
@@ -481,10 +481,10 @@ test('Safari 3.1.1, iPod Touch', function() {
 
 	var expected =
 		{
-			'safari': '3.1.1',
-			'mobile': 'ipod',
-			'ios': '2.2.1',
-			'webkit': '525.18.1'
+			safari: '3.1.1',
+			mobile: 'ipod',
+			ios: '2.2.1',
+			webkit: '525.18.1'
 		};
 
 	var actual = cssua.parse(input);
@@ -498,10 +498,10 @@ test('Safari 4.0.4, iPad', function() {
 
 	var expected =
 		{
-			'safari': '4.0.4',
-			'mobile': 'ipad',
-			'ios': '3.2',
-			'webkit': '531.21.10'
+			safari: '4.0.4',
+			mobile: 'ipad',
+			ios: '3.2',
+			webkit: '531.21.10'
 		};
 
 	var actual = cssua.parse(input);
@@ -515,10 +515,10 @@ test('Safari 5.0.1, Mac OS X', function() {
 
 	var expected =
 		{
-			'safari': '5.0.1',
-			'desktop': 'macintosh',
-			'mac os x': '10.6.4',
-			'webkit': '533.17.8'
+			safari: '5.0.1',
+			desktop: 'macintosh',
+			mac_os_x: '10.6.4',
+			webkit: '533.17.8'
 		};
 
 	var actual = cssua.parse(input);
@@ -532,10 +532,10 @@ test('Safari 5.0.2, iPhone 4', function() {
 
 	var expected =
 		{
-			'safari': '5.0.2',
-			'mobile': 'iphone',
-			'ios': '4.2.1',
-			'webkit': '533.17.9'
+			safari: '5.0.2',
+			mobile: 'iphone',
+			ios: '4.2.1',
+			webkit: '533.17.9'
 		};
 
 	var actual = cssua.parse(input);
@@ -549,10 +549,10 @@ test('Safari 5.0.3, Windows', function() {
 
 	var expected =
 		{
-			'windows nt': '6.1',
-			'safari': '5.0.3',
-			'desktop': 'windows',
-			'webkit': '533.19.4'
+			windows_nt: '6.1',
+			safari: '5.0.3',
+			desktop: 'windows',
+			webkit: '533.19.4'
 		};
 
 	var actual = cssua.parse(input);
@@ -566,9 +566,9 @@ test('Opera 5.11', function() {
 
 	var expected =
 		{
-			'windows nt': '4.0',
-			'opera': '5.11',
-			'desktop': 'windows'
+			windows_nt: '4.0',
+			opera: '5.11',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -582,8 +582,8 @@ test('Opera 6.12, UNIX', function() {
 
 	var expected =
 		{
-			'opera': '6.12',
-			'desktop': 'unix'
+			opera: '6.12',
+			desktop: 'unix'
 		};
 
 	var actual = cssua.parse(input);
@@ -597,9 +597,9 @@ test('Opera 7.54', function() {
 
 	var expected =
 		{
-			'opera': '7.54',
-			'windows nt': '5.1',
-			'desktop': 'windows'
+			opera: '7.54',
+			windows_nt: '5.1',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -613,8 +613,8 @@ test('Opera 8.5', function() {
 
 	var expected =
 		{
-			'opera': '8.5',
-			'desktop': 'macintosh'
+			opera: '8.5',
+			desktop: 'macintosh'
 		};
 
 	var actual = cssua.parse(input);
@@ -628,10 +628,10 @@ test('Opera 9.62', function() {
 
 	var expected =
 		{
-			'opera': '9.62',
-			'windows nt': '5.1',
-			'presto': '2.1.1',
-			'desktop': 'windows'
+			opera: '9.62',
+			windows_nt: '5.1',
+			presto: '2.1.1',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -645,9 +645,9 @@ test('Opera 10.62, Linux', function() {
 
 	var expected =
 		{
-			'opera': '10.62',
-			'presto': '2.6.30',
-			'desktop': 'linux'
+			opera: '10.62',
+			presto: '2.6.30',
+			desktop: 'linux'
 		};
 
 	var actual = cssua.parse(input);
@@ -661,10 +661,10 @@ test('Opera 11, Windows', function() {
 
 	var expected =
 		{
-			'opera': '11.00',
-			'windows nt': '6.1',
-			'presto': '2.7.62',
-			'desktop': 'windows'
+			opera: '11.00',
+			windows_nt: '6.1',
+			presto: '2.7.62',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -678,9 +678,9 @@ test('Opera 11, Spoofing IE8', function() {
 
 	var expected =
 		{
-			'windows nt': '6.0',
-			'opera': '11.00',
-			'desktop': 'windows'
+			windows_nt: '6.0',
+			opera: '11.00',
+			desktop: 'windows'
 		};
 
 	var actual = cssua.parse(input);
@@ -694,10 +694,10 @@ test('Opera Mini', function() {
 
 	var expected =
 		{
-			'opera': '9.80',
-			'opera mini': '5.1.21214/19.916',
-			'presto': '2.5.25',
-			'mobile': 'j2me'
+			opera: '9.80',
+			opera_mini: '5.1.21214/19.916',
+			presto: '2.5.25',
+			mobile: 'j2me'
 		};
 
 	var actual = cssua.parse(input);
@@ -711,9 +711,9 @@ test('Nexus One, Android (WebKit)', function() {
 
 	var expected =
 		{
-			'android': '2.2.1',
-			'mobile': 'android',
-			'webkit': '533.1'
+			android: '2.2.1',
+			mobile: 'android',
+			webkit: '533.1'
 		};
 
 	var actual = cssua.parse(input);
@@ -727,9 +727,9 @@ test('Nexus One, Android (WebKit)', function() {
 
 	var expected =
 		{
-			'android': '2.1-update1',
-			'mobile': 'android',
-			'webkit': '530.17'
+			android: '2.1-update1',
+			mobile: 'android',
+			webkit: '530.17'
 		};
 
 	var actual = cssua.parse(input);
@@ -743,9 +743,9 @@ test('Nexus S, Android (WebKit)', function() {
 
 	var expected =
 		{
-			'android': '2.3.1',
-			'mobile': 'android',
-			'webkit': '533.1'
+			android: '2.3.1',
+			mobile: 'android',
+			webkit: '533.1'
 		};
 
 	var actual = cssua.parse(input);
@@ -759,11 +759,11 @@ test('WinPhone 7 (IE)', function() {
 
 	var expected =
 		{
-			'windows phone os': '7.0',
-			'trident': '3.1',
-			'iemobile': '7.0',
-			'mobile': 'windows phone os',
-			'ie': '7.0'
+			windows_phone_os: '7.0',
+			trident: '3.1',
+			iemobile: '7.0',
+			mobile: 'windows phone os',
+			ie: '7.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -777,10 +777,10 @@ test('Blackberry 9330', function() {
 
 	var expected =
 		{
-			'blackberry9330': '5.0.0.913',
-			'vendorid': '104',
-			'mobile': 'blackberry',
-			'blackberry': '5.0.0.913'
+			blackberry9330: '5.0.0.913',
+			vendorid: '104',
+			mobile: 'blackberry',
+			blackberry: '5.0.0.913'
 		};
 
 	var actual = cssua.parse(input);
@@ -794,9 +794,9 @@ test('Blackberry Torch (WebKit)', function() {
 
 	var expected =
 		{
-			'blackberry': '9800',
-			'mobile': 'blackberry',
-			'webkit': '534.1'
+			blackberry: '9800',
+			mobile: 'blackberry',
+			webkit: '534.1'
 		};
 
 	var actual = cssua.parse(input);
@@ -810,10 +810,10 @@ test('Palm Pre (WebKit)', function() {
 
 	var expected =
 		{
-			'webos': '1.0',
-			'pre': '1.0',
-			'mobile': 'webos',
-			'webkit': '525.27.1'
+			webos: '1.0',
+			pre: '1.0',
+			mobile: 'webos',
+			webkit: '525.27.1'
 		};
 
 	var actual = cssua.parse(input);
@@ -827,9 +827,9 @@ test('HTC TyTN PDA (IE)', function() {
 
 	var expected =
 		{
-			"iemobile": "7.11",
-			'mobile': 'windows ce',
-			'ie': '6.0'
+			iemobile: '7.11',
+			mobile: 'windows ce',
+			ie: '6.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -843,10 +843,10 @@ test('Nokia 3650 (Symbian)', function() {
 
 	var expected =
 		{
-			'nokia3650': '1.0',
-			'symbianos': '6.1',
-			'series60': '1.2',
-			'mobile': 'symbian'
+			nokia3650: '1.0',
+			symbianos: '6.1',
+			series60: '1.2',
+			mobile: 'symbian'
 		};
 
 	var actual = cssua.parse(input);
@@ -860,10 +860,10 @@ test('Nokia 6120c (WebKit)', function() {
 
 	var expected =
 		{
-			'symbianos': '9.2',
-			'series60': '3.1',
-			'mobile': 'symbian',
-			'webkit': '413'
+			symbianos: '9.2',
+			series60: '3.1',
+			mobile: 'symbian',
+			webkit: '413'
 		};
 
 	var actual = cssua.parse(input);
@@ -877,10 +877,10 @@ test('Nokia 3650 (Netfront)', function() {
 
 	var expected =
 		{
-			'symbian os': '1.1.0',
-			'netfront': '3.1',
-			'mobile': 'smartphone',
-			'ie': '4.0'
+			symbian_os: '1.1.0',
+			netfront: '3.1',
+			mobile: 'smartphone',
+			ie: '4.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -894,15 +894,15 @@ test('AOL 9.6 (IE 8)', function() {
 
 	var expected =
 		{
-			'aol': '9.6',
-			'aolbuild': '4340.122',
-			'windows nt': '6.1',
-			'trident': '4.0',
-			'net clr': '3.5.30729',
-			'media center pc': '6.0',
-			'ms-rtc lm': '8',
-			'desktop': 'windows',
-			'ie': '8.0'
+			aol: '9.6',
+			aolbuild: '4340.122',
+			windows_nt: '6.1',
+			trident: '4.0',
+			net_clr: '3.5.30729',
+			media_center_pc: '6.0',
+			'ms-rtc_lm': '8',
+			desktop: 'windows',
+			ie: '8.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -916,7 +916,7 @@ test('Googlebot 2.1', function() {
 
 	var expected =
 		{
-			'googlebot': '2.1'
+			googlebot: '2.1'
 		};
 
 	var actual = cssua.parse(input);
@@ -930,8 +930,8 @@ test('Nintendo 3DS', function() {
 
 	var expected =
 		{
-			'game': 'nintendo 3ds',
-			'nintendo 3ds': '1.7455.eu'
+			game: 'nintendo 3ds',
+			nintendo_3ds: '1.7455.eu'
 		};
 
 	var actual = cssua.parse(input);
@@ -945,8 +945,8 @@ test('Nintendo Wii', function() {
 
 	var expected =
 		{
-			'opera': '9.30',
-			'game': 'nintendo wii'
+			opera: '9.30',
+			game: 'nintendo wii'
 		};
 
 	var actual = cssua.parse(input);
@@ -960,8 +960,8 @@ test('PS3', function() {
 
 	var expected =
 		{
-			'playstation': '3',
-			'game': 'playstation'
+			playstation: '3',
+			game: 'playstation'
 		};
 
 	var actual = cssua.parse(input);
@@ -975,9 +975,9 @@ test('PlayBook', function() {
 
 	var expected =
 		{
-			'rim tablet os': '1.0.0',
-			'mobile': 'rim tablet os',
-			'webkit': '534.8'
+			rim_tablet_os: '1.0.0',
+			mobile: 'rim tablet os',
+			webkit: '534.8'
 		};
 
 	var actual = cssua.parse(input);

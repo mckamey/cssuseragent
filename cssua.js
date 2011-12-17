@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2011-12-17-1450
+	Modified: 2011-12-17-1534
 
 	Copyright (c)2006-2011 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -21,7 +21,6 @@ var cssua = (function(html, userAgent) {
 		R_Version = /([\w\-\.]+[\s\/][v]?[\d_]+\b([\-\._\/]\w+)*)/g,
 
 		R_Gecko = /rv[:](\d+(\.\w+)*).*?\bgecko[\/]\w+/,
-		R_iOS = /\bos[\s]+(\d+(_\w+)*) like mac os x/,
 		R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\w+)*)/,
 		R_desktop = /(\bwindows\b|\bmacintosh\b|\blinux\b|\bunix\b)/,
 		R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bblackberry|\brim tablet os\b|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/,
@@ -43,13 +42,14 @@ var cssua = (function(html, userAgent) {
 					// inside parens covers platform identifiers
 					var platforms = raw[j].split(';');
 					for (i=0, count=platforms.length; i<count; i++) {
-						if (R_Platform.exec(platforms[i]) &&
-							// filter iOS variants here
-							RegExp.$1 !== 'cpu iphone os' && RegExp.$1 !== 'cpu os' &&
-							// if duplicate entries favor highest version
-							(!ua[RegExp.$1] || parseFloat(ua[RegExp.$1]) < parseFloat(RegExp.$2))) {
+						if (R_Platform.exec(platforms[i])) {
+							var key = RegExp.$1.split(' ').join('_'),
+								val = RegExp.$2;
 
-							ua[RegExp.$1] = RegExp.$2;
+							// if duplicate entries favor highest version
+							if ((!ua[key] || parseFloat(ua[key]) < parseFloat(val))) {
+								ua[key] = val;
+							}
 						}
 					}
 
@@ -60,7 +60,7 @@ var cssua = (function(html, userAgent) {
 						for (i=0, count=uas.length; i<count; i++) {
 							var parts = uas[i].split(/[\/\s]+/);
 							if (parts.length && parts[0] !== 'mozilla') {
-								ua[parts[0]] = parts.slice(1).join('-');
+								ua[parts[0].split(' ').join('_')] = parts.slice(1).join('-');
 							}
 						}
 					}
@@ -81,19 +81,25 @@ var cssua = (function(html, userAgent) {
 			} else if (R_game.exec(uaStr)) {
 				// game console indicators
 				ua.game = RegExp.$1;
+				var game = ua.game.split(' ').join('_');
 
-				if (ua.version && !ua[ua.game]) {
-					ua[ua.game] = ua.version;
+				if (ua.version && !ua[game]) {
+					ua[game] = ua.version;
 				}
 			}
 
 			// platform naming standardizations
-			if (ua['intel mac os x']) {
-				ua['mac os x'] = ua['intel mac os x'].split('_').join('.');
-				delete ua['intel mac os x'];
+			if (ua.intel_mac_os_x) {
+				ua.mac_os_x = ua.intel_mac_os_x.split('_').join('.');
+				delete ua.intel_mac_os_x;
 
-			} else if (R_iOS.exec(uaStr)) {
-				ua.ios = RegExp.$1.split('_').join('.');
+			} else if (ua.cpu_iphone_os) {
+				ua.ios = ua.cpu_iphone_os.split('_').join('.');
+				delete ua.cpu_iphone_os;
+
+			} else if (ua.cpu_os) {
+				ua.ios = ua.cpu_os.split('_').join('.');
+				delete ua.cpu_os;
 			}
 
 			// UA naming standardizations
@@ -108,8 +114,8 @@ var cssua = (function(html, userAgent) {
 				if (ua.safari) {
 					if (ua.chrome || (ua.mobile && !ua.ios)) {
 						delete ua.safari;
-	
-					} else if (ua.version && !ua['rim tablet os']) {
+
+					} else if (ua.version && !ua.rim_tablet_os) {
 						ua.safari = ua.version;
 	
 					} else {
@@ -144,7 +150,7 @@ var cssua = (function(html, userAgent) {
 
 		/*string*/ format : function (/*Map<string,string>*/ ua) {
 			/*string*/ function format(/*string*/ b, /*string*/ v) {
-				b = b.split(' ').join('_').split('.').join('-');
+				b = b.split('.').join('-');
 				/*string*/ var css = PREFIX+b;
 				if (v) {
 					v = v.split(' ').join('_').split('.').join('-');
