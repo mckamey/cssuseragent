@@ -3,31 +3,29 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2011-12-17-0940
+	Modified: 2011-12-17-1450
 
 	Copyright (c)2006-2011 Stephen M. McKamey
 	Distributed under The MIT License.
 */
 
 var cssua = (function(html, userAgent) {
+	'use strict';
 
 	/*const string*/ var PREFIX = ' ua-';
 
 	/*jslint regexp: false, browser: true */
 
-	var R_Any = /[\w\-\.\_]+[\/][v]?\d+([\-\.\_]\w+)*/g,
-		R_AOL = /\b(aol|america online browser)[\s\/]*(\d+(\.\w+)*)/,
-		R_MSIE = /\b(msie|microsoft internet explorer)[\s\/]*(\d+(\.\w+)*)/,
+	var R_Top = /^([^(]+)\((.+)\)(.*)$/,
+		R_Platform = /\s*([\-\w ]+)[\s\/]([\d_]+\b([\-\._\/]\w+)*)/,
+		R_Version = /([\w\-\.]+[\s\/][v]?[\d_]+\b([\-\._\/]\w+)*)/g,
+
 		R_Gecko = /rv[:](\d+(\.\w+)*).*?\bgecko[\/]\w+/,
-		R_Opera = /\bopera[\s\/]*(\d+(\.\w+)*)/,
-		R_Android = /\bandroid[\s]+(\d+(\.\w+)*)/,
-		R_iOS = /\bos[\s]+(\d+(\_\w+)*) like mac os x/,
-		R_WinPhone = /\bwindows phone os (\d+(\_\w+)*)/,
-		R_MSPIE = /\b(mspie|microsoft pocket internet explorer)[\s\/]*(\d+(\.\w+)*)/,
-		R_iCab = /\bicab[\s\/]*(\d+(\.\w+)*)/,
-		R_BlackBerry = /\b(blackberry|rim tablet os)\w*[\s\/]+(\d+(\.\w+)*)/,
-		R_Nintendo = /\b(nintendo\s+\w+)/,
-		R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bblackberry|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\btablet\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
+		R_iOS = /\bos[\s]+(\d+(_\w+)*) like mac os x/,
+		R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\w+)*)/,
+		R_desktop = /(\bwindows\b|\bmacintosh\b|\blinux\b|\bunix\b)/,
+		R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bblackberry|\brim tablet os\b|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/,
+		R_game = /(\bxbox\b|\bplaystation\b|\bnintendo\s+\w+)/;
 
 	var cssua = {
 
@@ -39,81 +37,102 @@ var cssua = (function(html, userAgent) {
 				return ua;
 			}
 
-			// do this first for all (covers generic user-agents)
-			var raw = uaStr.match(R_Any);
-			if (raw) {
-				for (var i=0; i<raw.length; i++) {
-					var s = raw[i].indexOf('/'),
-						b = raw[i].substring(0, s);
-					if (b && b !== 'mozilla') {
-						// shorten this common engine
-						if (b === 'applewebkit') {
-							b = 'webkit';
+			var i, count, raw = uaStr.split(/[()]/);
+			for (var j=0, rawCount=raw.length; j<rawCount; j++) {
+				if (j%2) {
+					// inside parens covers platform identifiers
+					var platforms = raw[j].split(';');
+					for (i=0, count=platforms.length; i<count; i++) {
+						if (R_Platform.exec(platforms[i]) &&
+							// filter iOS variants here
+							RegExp.$1 !== 'cpu iphone os' && RegExp.$1 !== 'cpu os' &&
+							// if duplicate entries favor highest version
+							(!ua[RegExp.$1] || parseFloat(ua[RegExp.$1]) < parseFloat(RegExp.$2))) {
+
+							ua[RegExp.$1] = RegExp.$2;
 						}
-						ua[b] = raw[i].substr(s+1);
+					}
+
+				} else {
+					// outside parens covers most version identifiers
+					var uas = raw[j].match(R_Version);
+					if (uas) {
+						for (i=0, count=uas.length; i<count; i++) {
+							var parts = uas[i].split(/[\/\s]+/);
+							if (parts.length && parts[0] !== 'mozilla') {
+								ua[parts[0]] = parts.slice(1).join('-');
+							}
+						}
 					}
 				}
 			}
 
-			// aol uses multiple engines so continue checking
-			if (R_AOL.exec(uaStr)) {
-				ua.aol = RegExp.$2;
+			if (R_mobile.exec(uaStr)) {
+				// mobile device indicators
+				ua.mobile = RegExp.$1;
+				if (R_BlackBerry.exec(uaStr)) {
+					ua.blackberry = RegExp.$1;
+				}
+
+			} else if (R_desktop.exec(uaStr)) {
+				// desktop OS indicators
+				ua.desktop = RegExp.$1;
+
+			} else if (R_game.exec(uaStr)) {
+				// game console indicators
+				ua.game = RegExp.$1;
+
+				if (ua.version && !ua[ua.game]) {
+					ua[ua.game] = ua.version;
+				}
 			}
 
-			// order is important as user-agents spoof each other	
-			if (R_Opera.exec(uaStr)) {
-				ua.opera = RegExp.$1;
-				if (R_Nintendo.exec(uaStr)) {
-					ua[RegExp.$1] = ua.version||ua.opera;
-				}
-			} else if (R_iCab.exec(uaStr)) {
-				ua.icab = RegExp.$1;
-			} else if (R_MSIE.exec(uaStr)) {
-				ua.ie = RegExp.$2;
-			} else if (R_MSPIE.exec(uaStr)) {
-				ua.mspie = RegExp.$2;
-			} else if (R_Gecko.exec(uaStr)) {
-				ua.gecko = RegExp.$1;
-			} else if (R_Android.exec(uaStr)) {
-				ua.android = RegExp.$1;
+			// platform naming standardizations
+			if (ua['intel mac os x']) {
+				ua['mac os x'] = ua['intel mac os x'].split('_').join('.');
+				delete ua['intel mac os x'];
+
 			} else if (R_iOS.exec(uaStr)) {
 				ua.ios = RegExp.$1.split('_').join('.');
-			} else if (R_WinPhone.exec(uaStr)) {
-				ua.winphone = RegExp.$1;
-			} else if (R_Nintendo.exec(uaStr)) {
-				ua[RegExp.$1] = ua.version||'';
 			}
 
-			// ensure that mobile devices have indication
-			if (!ua.blackberry && R_BlackBerry.exec(uaStr)) {
-				ua[RegExp.$1] = RegExp.$2;
-			}
-			if (R_mobile.exec(uaStr)) {
-				ua.mobile = RegExp.$1;
+			// UA naming standardizations
+			if (ua.opera && ua.version) {
+				ua.opera = ua.version;
 			}
 
-			// version standardization
-			if (ua.safari) {
-				if (ua.chrome || (ua.mobile && !ua.ios)) {
-					delete ua.safari;
+			if (ua.applewebkit) {
+				ua.webkit = ua.applewebkit;
+				delete ua.applewebkit;
 
-				} else if (ua.version) {
-					ua.safari = ua.version;
-
-				} else {
-					ua.safari = ({
-						'419': '2.0.4',
-						'417': '2.0.3',
-						'416': '2.0.2',
-						"412": '2.0',
-						'312': '1.3',
-						'125': '1.2',
-						'85': '1.0'
-					})[parseInt(ua.safari, 10)] || ua.safari;
+				if (ua.safari) {
+					if (ua.chrome || (ua.mobile && !ua.ios)) {
+						delete ua.safari;
+	
+					} else if (ua.version && !ua['rim tablet os']) {
+						ua.safari = ua.version;
+	
+					} else {
+						ua.safari = ({
+							'419': '2.0.4',
+							'417': '2.0.3',
+							'416': '2.0.2',
+							'412': '2.0',
+							'312': '1.3',
+							'125': '1.2',
+							'85': '1.0'
+						})[parseInt(ua.safari, 10)] || ua.safari;
+					}
 				}
 
-			} else if (ua.opera && ua.version) {
-				ua.opera = ua.version;
+			} else if (ua.msie) {
+				if (!ua.opera) {
+					ua.ie = ua.msie;
+				}
+				delete ua.msie;
+
+			} else if (R_Gecko.exec(uaStr)) {
+				ua.gecko = RegExp.$1;
 			}
 
 			if (ua.version) {
