@@ -443,6 +443,23 @@ test('Chrome 10 Dev, Windows', function() {
 	same(actual, expected, input);
 });
 
+test('Chrome 18, Galaxy Nexus, Android', function() {
+
+	var input = 'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19';
+
+	var expected =
+		{
+			android: '4.0.4',
+			chrome: '18.0.1025.133',
+			mobile: 'android',
+			webkit: '535.19'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Safari 1.0, Mac OS X', function() {
 
 	var input = 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; es) AppleWebKit/85 (KHTML, like Gecko) Safari/85';
@@ -468,6 +485,57 @@ test('Safari 2.0.4, Mac OS X', function() {
 			safari: '2.0.4',
 			desktop: 'macintosh',
 			webkit: '418.8'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Safari 3.0, iPhone 1.x', function() {
+
+	var input = 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3';
+
+	var expected =
+		{
+			safari: '3.0',
+			mobile: 'iphone',
+			ios: '1',
+			webkit: '420'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Safari 3.1.1, iPhone Simulator 2.0', function() {
+
+	var input = 'Mozilla/5.0 (iPhone Simulator; U; CPU iPhone OS 2_0 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5A345 Safari/525.20';
+
+	var expected =
+		{
+			safari: '3.1.1',
+			mobile: 'iphone',
+			ios: '2.0',
+			webkit: '525.18.1'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Safari 3.1.1, iPhone 2.0.1', function() {
+
+	var input = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_0_1 like Mac OS X; fr-fr) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5G77 Safari/525.20';
+
+	var expected =
+		{
+			safari: '3.1.1',
+			mobile: 'iphone',
+			ios: '2.0.1',
+			webkit: '525.18.1'
 		};
 
 	var actual = cssua.parse(input);

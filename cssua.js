@@ -100,6 +100,9 @@ var cssua = (function(html, userAgent) {
 			} else if (ua.cpu_os) {
 				ua.ios = ua.cpu_os.split('_').join('.');
 				delete ua.cpu_os;
+
+			} else if (ua.mobile === 'iphone' && !ua.ios) {
+				ua.ios = '1';
 			}
 
 			// UA naming standardizations
