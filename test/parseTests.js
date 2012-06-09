@@ -1009,6 +1009,24 @@ test('Googlebot 2.1', function() {
 	same(actual, expected, input);
 });
 
+test('Googlebot-Mobile 2.1', function() {
+
+	var input = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B117 Safari/6531.22.7 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)';
+
+	var expected =
+		{
+			safari: '4.0.5',
+			'googlebot-mobile': '2.1',
+			mobile: 'iphone',
+			ios: '4.1',
+			webkit: '532.9'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Nintendo 3DS', function() {
 
 	var input = 'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7455.EU';
