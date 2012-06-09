@@ -3,9 +3,9 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2011-12-17-1534
+	Modified: 2012-06-09-1017
 
-	Copyright (c)2006-2011 Stephen M. McKamey
+	Copyright (c)2006-2012 Stephen M. McKamey
 	Distributed under The MIT License.
 */
 
@@ -20,6 +20,7 @@ var cssua = (function(html, userAgent) {
 		R_Platform = /\s*([\-\w ]+)[\s\/]([\d_]+\b([\-\._\/]\w+)*)/,
 		R_Version = /([\w\-\.]+[\s\/][v]?[\d_]+\b([\-\._\/]\w+)*)/g,
 
+		R_FluidApp = /\bfluidapp\b/,
 		R_Gecko = /rv[:](\d+(\.\w+)*).*?\bgecko[\/]\w+/,
 		R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\w+)*)/,
 		R_desktop = /(\bwindows\b|\bmacintosh\b|\blinux\b|\bunix\b)/,
@@ -108,6 +109,9 @@ var cssua = (function(html, userAgent) {
 			// UA naming standardizations
 			if (ua.opera && ua.version) {
 				ua.opera = ua.version;
+
+			} else if (R_FluidApp.exec(uaStr)) {
+				ua.fluidapp = ua.version;
 			}
 
 			if (ua.applewebkit) {
@@ -115,7 +119,7 @@ var cssua = (function(html, userAgent) {
 				delete ua.applewebkit;
 
 				if (ua.safari) {
-					if (ua.chrome || (ua.mobile && !ua.ios)) {
+					if (ua.chrome || ua.fluidapp || (ua.mobile && !ua.ios)) {
 						delete ua.safari;
 
 					} else if (ua.version && !ua.rim_tablet_os) {

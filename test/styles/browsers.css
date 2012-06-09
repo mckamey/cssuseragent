@@ -117,6 +117,13 @@
 {
 	background-image: url(browsers/Chrome_128.png);
 }
+.ua-fluidapp .browser-info
+{
+	border-color: #0E4EB7;
+	border-top-color: #7AB35D;
+	border-left-color: #7AB35D;
+	background-image: url(browsers/Fluid_128.png);
+}
 .ua-shiira .browser-info
 {
 	border-color: #0198C2;
