@@ -628,6 +628,23 @@ test('Safari 5.0.3, Windows', function() {
 	same(actual, expected, input);
 });
 
+test('FluidApp 1.4, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/534.56.5 (KHTML, like Gecko) FluidApp Version/1.4 Safari/534.56.5';
+
+	var expected =
+		{
+			fluidapp: '1.4',
+			desktop: 'macintosh',
+			mac_os_x: '10.7.4',
+			webkit: '534.56.5'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Opera 5.11', function() {
 
 	var input = 'Mozilla/4.0 (compatible; MSIE 5.0; Windows NT 4.0) Opera 5.11  [de]';
