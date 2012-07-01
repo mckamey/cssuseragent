@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2012-06-09-1017
+	Modified: 2012-07-01-1236
 
 	Copyright (c)2006-2012 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -119,7 +119,7 @@ var cssua = (function(html, userAgent) {
 				delete ua.applewebkit;
 
 				if (ua.safari) {
-					if (ua.chrome || ua.fluidapp || (ua.mobile && !ua.ios)) {
+					if (ua.chrome || ua.crios || ua.fluidapp || (ua.mobile && !ua.ios)) {
 						delete ua.safari;
 
 					} else if (ua.version && !ua.rim_tablet_os) {

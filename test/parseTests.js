@@ -460,6 +460,56 @@ test('Chrome 18, Galaxy Nexus, Android', function() {
 	same(actual, expected, input);
 });
 
+test('Chrome for iOS, iPhone 4', function() {
+
+	var input = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en-us) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3 (B165A9AB-E4D5-45AF-BF13-87074C507BFC)';
+
+	var expected =
+		{
+			crios: '19.0.1084.60',
+			mobile: 'iphone',
+			ios: '5.1.1',
+			webkit: '534.46.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Chrome for iOS, iPad 2', function() {
+
+	var input = 'Mozilla/5.0 (iPad; U; CPU OS 5_1_1 like Mac OS X; en-us) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3 (094F454F-D547-476C-901F-BE273B0F2641)';
+
+	var expected =
+		{
+			crios: '19.0.1084.60',
+			mobile: 'ipad',
+			ios: '5.1.1',
+			webkit: '534.46.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('UIWebView, iOS 5.1.1', function() {
+
+	var input = 'Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B206';
+
+	var expected =
+		{
+			mobile: 'iphone',
+			ios: '5.1.1',
+			webkit: '534.46'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Safari 1.0, Mac OS X', function() {
 
 	var input = 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; es) AppleWebKit/85 (KHTML, like Gecko) Safari/85';
