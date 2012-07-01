@@ -96,7 +96,8 @@
 	border-left-color: #999999;
 	background-image: url(browsers/Safari_128.png);
 }
-.ua-chrome .browser-info
+.ua-chrome .browser-info,
+.ua-crios .browser-info
 {
 	border-color: #2BAB33;
 	border-top-color: #FFD600;
