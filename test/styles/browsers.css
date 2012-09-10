@@ -125,6 +125,13 @@
 	border-left-color: #7AB35D;
 	background-image: url(browsers/Fluid_128.png);
 }
+.ua-phantomjs .browser-info
+{
+	border-color: #008D92;
+	border-top-color: #00CDD7;
+	border-left-color: #00CDD7;
+	background-image: url(browsers/PhantomJS_128.png);
+}
 .ua-shiira .browser-info
 {
 	border-color: #0198C2;

@@ -7,6 +7,7 @@
 \.iws
 .*\.bat
 .*\.psd
+.*\.ai
 .*\.sh
 ga\.js
 
