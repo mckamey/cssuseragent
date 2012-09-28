@@ -678,6 +678,75 @@ test('Safari 5.0.3, Windows', function() {
 	same(actual, expected, input);
 });
 
+test('Silk 1.1.0, Kindle Fire 1 (desktop, accelerated)', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true';
+
+	var expected =
+		{
+			silk: '1.1.0-80',
+			desktop: 'macintosh',
+			mac_os_x: '10.6.3',
+			silk_accelerated: true,
+			webkit: '533.16'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Silk 1.1.0, Kindle Fire 1 (mobile, not accelerated)', function() {
+
+	var input = 'Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Silk/1.1.0-80) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 Silk-Accelerated=false';
+
+	var expected =
+		{
+			android: '2.3.4',
+			silk: '1.1.0-80',
+			mobile: 'android',
+			webkit: '533.1'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Silk 2.1, Kindle Fire 2 (mobile, accelerated)', function() {
+
+	var input = 'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFOT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.1 Mobile Safari/535.19 Silk-Accelerated=true';
+
+	var expected =
+		{
+			android: '4.0.3',
+			silk: '2.1',
+			mobile: 'android',
+			silk_accelerated: true,
+			webkit: '535.19'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Silk 2.1, Kindle Fire 2 (desktop, not accelerated)', function() {
+
+	var input = 'Mozilla/5.0 (Linux; U; en-us; KFOT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.1 Safari/535.19 Silk-Accelerated=false';
+
+	var expected =
+		{
+			silk: '2.1',
+			desktop: 'linux',
+			webkit: '535.19'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('FluidApp 1.4, Mac OS X', function() {
 
 	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/534.56.5 (KHTML, like Gecko) FluidApp Version/1.4 Safari/534.56.5';
