@@ -118,6 +118,13 @@
 {
 	background-image: url(browsers/Chrome_128.png);
 }
+.ua-silk .browser-info
+{
+	border-color: #0176E0;
+	border-top-color: #F78013;
+	border-left-color: #F78013;
+	background-image: url(browsers/Silk_128.png);
+}
 .ua-fluidapp .browser-info
 {
 	border-color: #0E4EB7;
