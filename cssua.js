@@ -3,9 +3,9 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2012-09-27-2335
+	Modified: 2013-03-05-1020
 
-	Copyright (c)2006-2012 Stephen M. McKamey
+	Copyright (c)2006-2013 Stephen M. McKamey
 	Distributed under The MIT License.
 */
 
@@ -191,8 +191,14 @@ function(html, userAgent) {
 					ua.webkit = ua.applewebkit;
 					delete ua.applewebkit;
 
+					if (ua.opr) {
+						ua.opera = ua.opr;
+						delete ua.opr;
+						delete ua.chrome;
+					}
+
 					if (ua.safari) {
-						if (ua.chrome || ua.crios || ua.silk || ua.fluidapp || ua.phantomjs || (ua.mobile && !ua.ios)) {
+						if (ua.chrome || ua.crios || ua.opera || ua.silk || ua.fluidapp || ua.phantomjs || (ua.mobile && !ua.ios)) {
 							delete ua.safari;
 
 						} else if (ua.version && !ua.rim_tablet_os) {

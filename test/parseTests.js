@@ -892,6 +892,40 @@ test('Opera 11, Spoofing IE8', function() {
 	same(actual, expected, input);
 });
 
+test('Opera 14 (Webkit), Android', function() {
+
+	var input = 'Mozilla/5.0 (Linux; Android 4.1.2; GT-N7000 Build/JZO54K) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.123 Mobile Safari/537.22 OPR/14.0.1025.52315';
+
+	var expected =
+		{
+			android: '4.1.2',
+			mobile: 'android',
+			webkit: '537.22',
+			opera: '14.0.1025.52315'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Opera 14 (Webkit), Windows', function() {
+
+	var input = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.60 Safari/537.17 OPR/14.0.1025.52315';
+
+	var expected =
+		{
+			windows_nt: '6.1',
+			desktop: 'windows',
+			webkit: '537.17',
+			opera: '14.0.1025.52315'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Opera Mini', function() {
 
 	var input = 'Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214/19.916; U; en) Presto/2.5.25';
