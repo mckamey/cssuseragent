@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2013-03-05-1020
+	Modified: 2013-03-24-1340
 
 	Copyright (c)2006-2013 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -52,7 +52,7 @@ function(html, userAgent) {
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_BlackBerry = /\bblackberry\w*[\s\/]+(\d+(\.\w+)*)/;
+	var R_BlackBerry = /\b(?:(blackberry\w*|bb10)|(rim tablet os))(?:\/(\d+\.\d+(\.\w+)*))?/;
 
 	/**
 	 * @const
@@ -76,7 +76,7 @@ function(html, userAgent) {
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bmeego|\bblackberry|\brim tablet os\b|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
+	var R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bblackberry\w*|\bbb10\b|\brim tablet os\b|\bmeego|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
 
 	/**
 	 * @const
@@ -142,7 +142,15 @@ function(html, userAgent) {
 					// mobile device indicators
 					ua.mobile = RegExp.$1;
 					if (R_BlackBerry.exec(uaStr)) {
-						ua.blackberry = RegExp.$1;
+						delete ua[ua.mobile];
+						ua.blackberry = ua.version || RegExp.$3 || RegExp.$2 || RegExp.$1;
+						if (RegExp.$1) {
+							// standardize non-tablet blackberry
+							ua.mobile = 'blackberry';
+						} else if (ua.version === '0.0.1') {
+							// fix playbook 1.0 quirk
+							ua.blackberry = '7.1.0.0';
+						}
 					}
 
 				} else if (R_desktop.exec(uaStr)) {
@@ -179,6 +187,8 @@ function(html, userAgent) {
 				// UA naming standardizations
 				if (ua.opera && ua.version) {
 					ua.opera = ua.version;
+					// version/XXX refers to opera
+					delete ua.blackberry;
 
 				} else if (R_Silk.exec(uaStr)) {
 					ua.silk_accelerated = true;
