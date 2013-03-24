@@ -26,7 +26,7 @@
 			<li class="zebra-item"><strong>javascript</strong> <em class="js-disabled">disabled</em><span class="js-enabled">enabled</span></li>
 			<script type="text/javascript">
 				(function() {
-					var i=1, ua = cssua.userAgent;
+					var i=1, ua = cssua.ua;
 					for (var key in ua) {
 						document.write("<li class=\"zebra-item");
 						if (i++ % 2) {
@@ -78,7 +78,7 @@
 		<code class="example syntax">
 			<span style="display:block"><span class="comment">&lt;!-- the CSS classes currently applied to this page tag are: --&gt;</span></span>
 			<span style="display:block"><span class="op">&lt;</span><span class="key">html class</span><span class="op">=</span><span class="lit">"<script type="text/javascript">
-				document.write(document.documentElement.className);
+				document.write(document.documentElement.className.replace(/^\s+|\s+$/g,''));
 			</script>"</span><span class="op">&gt;</span></span>
 			<span class="indent" style="display:block">
 				<span class="op">&lt;</span><span class="key">head</span><span class="op">&gt;&hellip;&lt;/</span><span class="key">head</span><span class="op">&gt;</span><br />
@@ -87,45 +87,109 @@
 			<span style="display:block"><span class="op">&lt;/</span><span class="key">html</span><span class="op">&gt;</span></span>
 		</code>
 
-		<h2>Mobile browser detection</h2>
-		<p>CssUserAgent helps detect the increasingly ambiguous category of mobile browsers. <code>cssua.js</code> adds specific classes when it detects mobile browsers:</p>
-		<code class="example syntax">
-			<span style="display:block"><span class="op">&lt;</span><span class="key">html class</span><span class="op">=</span><span class="lit">"&hellip; ua-mobile ua-mobile-iphone &hellip;"</span><span class="op">&gt;</span>&hellip;<span class="op">&lt;</span><span class="key">html</span><span class="op">&gt;</span></span>
-		</code>
-
 		<h2>UserAgent map</h2>
-		<p>UserAgent-sniffing is regarded as something to be used sparingly, but any pragmatic developer knows it is sometimes the simplest approach. When it is, <code>cssua.js</code> produces a helper object as a side-effect which makes user-agent-siffing a snap.</p>
+		<p>UserAgent-sniffing is regarded as something to be used sparingly, but pragmatic developers know it is sometimes the simplest approach to fixing a particular browser's quirk. When it is, <code>cssua.js</code> produces a helper object as a side-effect which makes user-agent-siffing easier and more consistent.</p>
 		<p>An object map is also built which allows you to test the user agent from your script in a simplified manner that doesn't require string parsing. For example, this object is effectively produced:</p>
 
-		<code class="example syntax">
-			cssua.userAgent <span class="op">= {</span>
+		<code class="example syntax">cssua.userAgent <span class="op">=</span> cssua.ua <span class="op">= {</span>
 			<script type="text/javascript">
 				(function() {
-					var i=0, ua = cssua.userAgent;
-					for (var key in ua) {
+					var i=0;
+					for (var key in cssua.ua) {
 						if (i++ > 0) {
-							document.write("<span class=\"op\">,</span>\n");
+							document.write('<span class="op">,</span></span>\n');
 						}
+						document.write('<span class="indent" style="display:block">');
 						document.write(key)
-						document.write("<span class=\"op\">:</span> <span class=\"lit\">\"");
-						document.write(ua[key]);
-						document.write("\"</span>");
+						document.write('<span class="op">:</span> <span class="lit">"');
+						document.write(cssua.ua[key]);
+						document.write('"</span>');
+					}
+					if (i > 0) {
+						document.write('</span>\n');
 					}
 				})()
 			</script>
 			<span class="op">};</span>
 		</code>
 
+		<h2>Try it out</h2>
+		<p>Change the input userAgent value and watch how the key-value pairs and the CSS class names respond to the change. This gives you an idea of what to expect from browsers other than this one.</p>
+		<div>
+			<script>
+				function $id(id) {
+					return document.getElementById(id);
+				}
+				function jsonish(val) {
+					var result = '{',
+						delim = false;
+					for (var key in val) {
+						if (val.hasOwnProperty(key)) {
+							if (delim) {
+								result += ','
+							} else {
+								delim = true;
+							}
+							result += '\n    '+key+': "'+val[key]+'"';
+						}
+					}
+					return result + '\n}\n';
+				}
+				function splitList(val) {
+					return val.replace(/^\s+|\s+$/g,'').replace(/\s+/g,'\n')+'\n';
+				}
+				function resetDemo() {
+					$id("inputUA").value = navigator.userAgent;
+					return false;
+				}
+				function runDemo() {
+					var input = $id('inputUA');
+					if (!input.value) {
+						input.value = navigator.userAgent;
+					}
+					var ua = cssua.parse(input.value);
+					$id('jsUA').value = jsonish(ua);
+					$id('cssUA').value = splitList(cssua.format(ua));
+					return false;
+				}
+			</script>
+			<h3 style="margin:0.25em 0">navigator.userAgent:</h3>
+			<textarea id="inputUA" cols="70" rows="3" style="width:100%;" onkeyup="runDemo();" onchange="runDemo();"></textarea>
+			<div style="float:right;width:49%;">
+				<h3 style="margin:0.25em 0">document.documentElement.className:</h3>
+				<textarea id="cssUA" cols="35" rows="15" readonly style="width:100%;" onclick="this.select();"></textarea>
+			</div>
+			<div style="float:left;width:49%;">
+				<h3 style="margin:0.25em 0">cssua.userAgent | cssua.ua:</h3>
+				<textarea id="jsUA" cols="35" rows="15" readonly style="width:100%;" onclick="this.select();"></textarea>
+			</div>
+			<input type="button" onclick="return resetDemo();" value="Reset UserAgent" />
+			<script>resetDemo();runDemo();</script>
+		</div>
+
+		<h2>Examples</h2>
 		<p>Testing for older Internet Explorer has never been easier than this:</p>
 
 		<code class="example syntax">
-			<span class="key">if</span> (cssua.userAgent.ie <span class="op">&lt;</span> 8) { <span class="comment">/* proof of Pareto principle here */</span> <span class="op">}</span>
+			<span class="key">if</span> (cssua.ua.ie <span class="op">&lt;</span> 8.0) { <span class="comment indent" style="display:block">/* proof of Pareto principle here */</span> <span class="op">}</span>
 		</code>
 
-		<p>Or testing if is a mobile browser:</p>
+		<p>Or get a hint if this user might need a mobile experience:</p>
 
 		<code class="example syntax">
-			<span class="key">if</span> (cssua.userAgent.mobile) { <span class="comment">/* consider your audience */</span> <span class="op">}</span>
+			<span class="key">if</span> (cssua.ua.mobile) { <span class="comment indent" style="display:block">/* consider your audience */</span> <span class="op">}</span>
+		</code>
+
+		<p>Remember to convert the version <code>String</code> to a <code>Number</code> with <code>parseFloat</code> if the value isn't a simple number, e.g., it has multiple decimal points or trailing letters. Otherwise JavaScript may interpret the value as <code>NaN</code> (not a number):</p>
+
+		<code class="example syntax">
+			<span class="key">if</span> (parseFloat(cssua.ua.chrome) > 101) { <span class="comment indent" style="display:block">/* enter the Matrix */</span> <span class="op">}</span>
+		</code>
+
+		<h2>Mobile browser detection</h2>
+		<p>CssUserAgent helps detect the increasingly ambiguous category of mobile browsers. <code>cssua.js</code> adds specific classes when it detects mobile browsers:</p>
+		<code class="example syntax">
+			<span style="display:block"><span class="op">&lt;</span><span class="key">html class</span><span class="op">=</span><span class="lit">"&hellip; ua-mobile ua-mobile-iphone &hellip;"</span><span class="op">&gt;</span>&hellip;<span class="op">&lt;</span><span class="key">html</span><span class="op">&gt;</span></span>
 		</code>
 
 		<h2>No browser hacks</h2>
@@ -156,16 +220,6 @@
 
 		<p>Some browsers have multiple listings if the rendering engine is significant.  For instance, Gecko-based browsers (such as Firefox, Mozilla, Netscape, Camino, SeaMonkey) also define Gecko CSS classes, to target all browsers of a specific Gecko version at once.</p>
 		<p>Below is an example of a number of browser labels which display differently under the presence of different CssUserAgent classes.</p>
-
-		<h2>Try it out</h2>
-		<p>
-			<textarea id="txtTestUA" cols="70" rows="8" style="width:100%;" onfocus="this.select();"></textarea><br />
-			<script type="text/javascript">
-				document.getElementById("txtTestUA").value=navigator.userAgent;
-			</script>
-			<input type="button" onclick="var t=document.getElementById('txtTestUA');if(t){t.value=cssua.format(cssua.parse(t.value)).replace(/^\s+|\s+$/g,'').replace(/\s+/g,'\n');}return false;" value="Show CssUserAgent" />
-			<input type="button" onclick="document.getElementById('txtTestUA').value=navigator.userAgent;" value="Reset UserAgent" />
-		</p>
 
 		<div class="ua-test" style="margin-bottom:4em;">
 			<ul style="width:33%">

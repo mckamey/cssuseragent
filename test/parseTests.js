@@ -1009,13 +1009,47 @@ test('WinPhone 7 (IE)', function() {
 	same(actual, expected, input);
 });
 
-test('Blackberry 9330', function() {
+test('Blackberry (Opera Mini)', function() {
+
+	var input = 'Opera/9.80 (BlackBerry; Opera Mini/6.24209/26.1098; U; en) Presto/2.8.119 Version/10.54';
+
+	var expected =
+		{
+			opera: "10.54",
+			opera_mini: "6.24209/26.1098",
+			presto: "2.8.119",
+			mobile: "blackberry"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+// http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-to-detect-the-BlackBerry-Browser/ta-p/559862
+
+test('BlackBerry Pearl Flip 8220', function() {
+
+	var input = 'BlackBerry8220/4.6.0.106 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/179';
+
+	var expected =
+		{
+			vendorid: "179",
+			mobile: "blackberry",
+			blackberry: "4.6.0.106"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Blackberry Curve 9330', function() {
 
 	var input = 'BlackBerry9330/5.0.0.913 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/104';
 
 	var expected =
 		{
-			blackberry9330: '5.0.0.913',
 			vendorid: '104',
 			mobile: 'blackberry',
 			blackberry: '5.0.0.913'
@@ -1026,15 +1060,98 @@ test('Blackberry 9330', function() {
 	same(actual, expected, input);
 });
 
-test('Blackberry Torch (WebKit)', function() {
+test('BlackBerry Bold 9900 (WebKit)', function() {
+
+	var input = 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.0.0.187 Mobile Safari/534.11+';
+
+	var expected =
+		{
+			blackberry: '7.0.0.187',
+			mobile: 'blackberry',
+			webkit: '534.11'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Blackberry Torch 9800 (WebKit)', function() {
 
 	var input = 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en) AppleWebKit/534.1+ (KHTML, Like Gecko) Version/6.0.0.141 Mobile Safari/534.1+';
 
 	var expected =
 		{
-			blackberry: '9800',
+			blackberry: '6.0.0.141',
 			mobile: 'blackberry',
 			webkit: '534.1'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Blackberry 10 Torch (WebKit)', function() {
+
+	var input = 'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.1+ (KHTML, like Gecko) Version/10.0.0.1337 Mobile Safari/537.1+';
+
+	var expected =
+		{
+			blackberry: '10.0.0.1337',
+			mobile: 'blackberry',
+			webkit: '537.1'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Blackberry PlayBook 1.0.0 (WebKit)', function() {
+
+	var input = 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 1.0.0; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.7 Safari/534.11+';
+
+	var expected =
+		{
+			blackberry: '7.1.0.7',
+			rim_tablet_os: '1.0.0',
+			mobile: 'rim tablet os',
+			webkit: '534.11'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Blackberry PlayBook OS 1.0.1.1690 (WebKit)', function() {
+
+	var input = 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 1.0.0; en-US) AppleWebKit/534.8+ (KHTML, like Gecko) Version/0.0.1 Safari/534.8+.';
+
+	var expected =
+		{
+			blackberry: '7.1.0.0',
+			rim_tablet_os: '1.0.0',
+			mobile: 'rim tablet os',
+			webkit: '534.8'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Blackberry PlayBook 2.1.0 (WebKit)', function() {
+
+	var input = 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+';
+
+	var expected =
+		{
+			blackberry: '7.2.1.0',
+			mobile: 'rim tablet os',
+			rim_tablet_os: '2.1.0',
+			webkit: '536.2'
 		};
 
 	var actual = cssua.parse(input);
@@ -1218,22 +1335,6 @@ test('PS3', function() {
 		{
 			playstation: '3',
 			game: 'playstation'
-		};
-
-	var actual = cssua.parse(input);
-
-	same(actual, expected, input);
-});
-
-test('PlayBook', function() {
-
-	var input = 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 1.0.0; en-US) AppleWebKit/534.8+ (KHTML, like Gecko) Version/0.0.1 Safari/534.8+';
-
-	var expected =
-		{
-			rim_tablet_os: '1.0.0',
-			mobile: 'rim tablet os',
-			webkit: '534.8'
 		};
 
 	var actual = cssua.parse(input);
