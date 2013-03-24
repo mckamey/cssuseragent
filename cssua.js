@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2013-03-24-1340
+	Modified: 2013-03-24-1603
 
 	Copyright (c)2006-2013 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -76,7 +76,7 @@ function(html, userAgent) {
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bblackberry\w*|\bbb10\b|\brim tablet os\b|\bmeego|\bwebos\b|\bwindows ce\b|\bwindows phone os\b|\bwindows ce\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
+	var R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bwindows phone\b|\bwindows ce\b|\bxblwp7\b|\bzunewp7\b|\bblackberry\w*|\bbb10\b|\brim tablet os\b|\bmeego|\bwebos\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
 
 	/**
 	 * @const
@@ -229,9 +229,21 @@ function(html, userAgent) {
 
 				} else if (ua.msie) {
 					if (!ua.opera) {
+						// standardize Internet Explorer
 						ua.ie = ua.msie;
 					}
 					delete ua.msie;
+
+					if (ua.windows_phone_os) {
+						// standardize window phone
+						ua.windows_phone = ua.windows_phone_os;
+						delete ua.windows_phone_os;
+
+					} else if (ua.mobile === 'xblwp7' || ua.mobile === 'zunewp7') {
+						ua.mobile = 'windows phone';
+						ua.windows_phone = '7.0';
+						delete ua.windows_nt;
+					}
 
 				} else if (R_Gecko.exec(uaStr)) {
 					ua.gecko = RegExp.$1;
