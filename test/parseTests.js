@@ -991,17 +991,88 @@ test('Nexus S, Android (WebKit)', function() {
 	same(actual, expected, input);
 });
 
-test('WinPhone 7 (IE)', function() {
+test('Windows Phone 7.0 (IE)', function() {
 
 	var input = 'Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) Asus;Galaxy6';
 
 	var expected =
 		{
-			windows_phone_os: '7.0',
+			windows_phone: '7.0',
 			trident: '3.1',
 			iemobile: '7.0',
-			mobile: 'windows phone os',
+			mobile: 'windows phone',
 			ie: '7.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Windows Phone 7.0 (Zune, desktop mode, IE)', function() {
+
+	var input = 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; XBLWP7; ZuneWP7)';
+
+	var expected =
+		{
+			windows_phone: '7.0',
+			mobile: 'windows phone',
+			ie: '7.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Windows Phone 7.5 (Samsung, IE)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917)';
+
+	var expected =
+		{
+			windows_phone: '7.5',
+			trident: '5.0',
+			iemobile: '9.0',
+			mobile: 'windows phone',
+			ie: '9.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Windows Phone 8.0 (Lumia 920, IE)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)';
+
+	var expected =
+		{
+			windows_phone: '8.0',
+			trident: '6.0',
+			iemobile: '10.0',
+			lumia: '920',
+			mobile: 'windows phone',
+			ie: '10.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Windows Phone 8.0 (HTC 8X, IE)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; PM23300)';
+
+	var expected =
+		{
+			windows_phone: '8.0',
+			trident: '6.0',
+			iemobile: '10.0',
+			mobile: 'windows phone',
+			ie: '10.0'
 		};
 
 	var actual = cssua.parse(input);
