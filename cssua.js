@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2013-03-24-1603
+	Modified: 2013-03-24-1835
 
 	Copyright (c)2006-2013 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -34,25 +34,25 @@ function(html, userAgent) {
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_Platform = /\s*([\-\w ]+)[\s\/]([\d_]+\b([\-\._\/]\w+)*)/;
+	var R_Platform = /\s*([\-\w ]+)[\s\/]([\d_]+\b(?:[\-\._\/]\w+)*)/;
 
 	/**
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_Version = /([\w\-\.]+[\s\/][v]?[\d_]+\b([\-\._\/]\w+)*)/g;
+	var R_Version = /([\w\-\.]+[\s\/][v]?[\d_]+\b(?:[\-\._\/]\w+)*)/g;
 
 	/**
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_Gecko = /rv[:](\d+(\.\w+)*).*?\bgecko[\/]\w+/;
+	var R_Gecko = /rv[:](\d+(?:\.\w+)*).*?\bgecko[\/]\w+/;
 
 	/**
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_BlackBerry = /\b(?:(blackberry\w*|bb10)|(rim tablet os))(?:\/(\d+\.\d+(\.\w+)*))?/;
+	var R_BlackBerry = /\b(?:(blackberry\w*|bb10)|(rim tablet os))(?:\/(\d+\.\d+(?:\.\w+)*))?/;
 
 	/**
 	 * @const
@@ -76,7 +76,7 @@ function(html, userAgent) {
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bwindows phone\b|\bwindows ce\b|\bxblwp7\b|\bzunewp7\b|\bblackberry\w*|\bbb10\b|\brim tablet os\b|\bmeego|\bwebos\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
+	var R_mobile = /(\bandroid\b|\bipad\b|\bipod\b|\bwindows phone\b|\bwpdesktop\b|\bxblwp7\b|\bzunewp7\b|\bwindows ce\b|\bblackberry\w*|\bbb10\b|\brim tablet os\b|\bmeego|\bwebos\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/;
 
 	/**
 	 * @const
@@ -239,9 +239,9 @@ function(html, userAgent) {
 						ua.windows_phone = ua.windows_phone_os;
 						delete ua.windows_phone_os;
 
-					} else if (ua.mobile === 'xblwp7' || ua.mobile === 'zunewp7') {
-						ua.mobile = 'windows phone';
-						ua.windows_phone = '7.0';
+					} else if (ua.mobile === 'wpdesktop' || ua.mobile === 'xblwp7' || ua.mobile === 'zunewp7') {
+						ua.mobile = 'windows desktop';
+						ua.windows_phone = (+ua.ie < 9) ? '7.0' : (+ua.ie < 10) ? '7.5' : '8.0';
 						delete ua.windows_nt;
 					}
 
