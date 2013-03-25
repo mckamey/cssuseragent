@@ -139,6 +139,58 @@ test('IE 9.0 Beta, Windows', function() {
 	same(actual, expected, input);
 });
 
+test('IE 10.0 Platform Preview 1, Windows', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)';
+
+	var expected =
+		{
+			windows_nt: '6.1',
+			trident: '6.0',
+			desktop: 'windows',
+			ie: '10.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('IE 10.0, Windows 8 (Touch)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Touch)';
+
+	var expected =
+		{
+			windows_nt: '6.2',
+			trident: '6.0',
+			desktop: 'windows',
+			ie: '10.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('IE 10.0, Windows 2008 R2', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E)';
+
+	var expected =
+		{
+			windows_nt: "6.1",
+			trident: "6.0",
+			net_clr: "3.5.30729",
+			desktop: "windows",
+			ie: "10.0"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('MSPIE 2.0, Windows CE', function() {
 
 	var input = 'Mozilla/1.1 (compatible; MSPIE 2.0; Windows CE)';
@@ -997,11 +1049,11 @@ test('Windows Phone 7.0 (IE)', function() {
 
 	var expected =
 		{
-			windows_phone: '7.0',
 			trident: '3.1',
 			iemobile: '7.0',
 			mobile: 'windows phone',
-			ie: '7.0'
+			ie: '7.0',
+			windows_phone: '7.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -1009,15 +1061,15 @@ test('Windows Phone 7.0 (IE)', function() {
 	same(actual, expected, input);
 });
 
-test('Windows Phone 7.0 (Zune, desktop mode, IE)', function() {
+test('Windows Phone 7.0 (Desktop mode, IE)', function() {
 
 	var input = 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; XBLWP7; ZuneWP7)';
 
 	var expected =
 		{
-			windows_phone: '7.0',
-			mobile: 'windows phone',
-			ie: '7.0'
+			mobile: 'windows desktop',
+			ie: '7.0',
+			windows_phone: '7.0'
 		};
 
 	var actual = cssua.parse(input);
@@ -1031,11 +1083,28 @@ test('Windows Phone 7.5 (Samsung, IE)', function() {
 
 	var expected =
 		{
-			windows_phone: '7.5',
 			trident: '5.0',
 			iemobile: '9.0',
 			mobile: 'windows phone',
-			ie: '9.0'
+			ie: '9.0',
+			windows_phone: '7.5'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Windows Phone 7.5 (IE Desktop mode)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; XBLWP7; ZuneWP7)';
+
+	var expected =
+		{
+			trident: '5.0',
+			mobile: 'windows desktop',
+			ie: '9.0',
+			windows_phone: '7.5'
 		};
 
 	var actual = cssua.parse(input);
@@ -1073,6 +1142,23 @@ test('Windows Phone 8.0 (HTC 8X, IE)', function() {
 			iemobile: '10.0',
 			mobile: 'windows phone',
 			ie: '10.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Windows Phone 8.0 (Desktop mode, IE)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; ARM; Touch; WPDesktop)';
+
+	var expected =
+		{
+			trident: '6.0',
+			mobile: 'windows desktop',
+			ie: '10.0',
+			windows_phone: '8.0'
 		};
 
 	var actual = cssua.parse(input);
