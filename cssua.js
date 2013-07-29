@@ -227,12 +227,13 @@ function(html, userAgent) {
 						}
 					}
 
-				} else if (ua.msie) {
+				} else if (ua.msie || ua.trident) {
 					if (!ua.opera) {
 						// standardize Internet Explorer
-						ua.ie = ua.msie;
+						ua.ie = ua.msie || ua.rv;
 					}
 					delete ua.msie;
+					delete ua.rv;
 
 					if (ua.windows_phone_os) {
 						// standardize window phone
@@ -244,10 +245,6 @@ function(html, userAgent) {
 						ua.windows_phone = (+ua.ie < 9) ? '7.0' : (+ua.ie < 10) ? '7.5' : '8.0';
 						delete ua.windows_nt;
 					}
-
-				} else if (ua.trident) {
-					ua.ie = ua.rv;
-					delete ua.rv;
 
 				} else if (R_Gecko.exec(uaStr)) {
 					ua.gecko = RegExp.$1;
