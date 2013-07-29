@@ -191,6 +191,23 @@ test('IE 10.0, Windows 2008 R2', function() {
 	same(actual, expected, input);
 });
 
+test('IE 11.0, Windows 8.1 (Blue preview)', function() {
+
+	var input = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko';
+
+	var expected =
+		{
+			windows_nt: "6.3",
+			trident: "7.0",
+			desktop: "windows",
+			ie: "11.0"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('MSPIE 2.0, Windows CE', function() {
 
 	var input = 'Mozilla/1.1 (compatible; MSPIE 2.0; Windows CE)';

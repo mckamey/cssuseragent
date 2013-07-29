@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2013-03-24-1835
+	Modified: 2013-07-28-2349
 
 	Copyright (c)2006-2013 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -244,6 +244,10 @@ function(html, userAgent) {
 						ua.windows_phone = (+ua.ie < 9) ? '7.0' : (+ua.ie < 10) ? '7.5' : '8.0';
 						delete ua.windows_nt;
 					}
+
+				} else if (ua.trident) {
+					ua.ie = ua.rv;
+					delete ua.rv;
 
 				} else if (R_Gecko.exec(uaStr)) {
 					ua.gecko = RegExp.$1;
