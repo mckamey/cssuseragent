@@ -3,7 +3,7 @@
 	User-agent specific CSS support
 
 	Created: 2006-06-10-1635
-	Modified: 2013-07-28-2349
+	Modified: 2013-07-29-0009
 
 	Copyright (c)2006-2013 Stephen M. McKamey
 	Distributed under The MIT License.
@@ -34,19 +34,13 @@ function(html, userAgent) {
 	 * @const
 	 * @type {RegExp}
 	 */
-	var R_Platform = /\s*([\-\w ]+)[\s\/]([\d_]+\b(?:[\-\._\/]\w+)*)/;
+	var R_Platform = /\s*([\-\w ]+)[\s\/\:]([\d_]+\b(?:[\-\._\/]\w+)*)/;
 
 	/**
 	 * @const
 	 * @type {RegExp}
 	 */
 	var R_Version = /([\w\-\.]+[\s\/][v]?[\d_]+\b(?:[\-\._\/]\w+)*)/g;
-
-	/**
-	 * @const
-	 * @type {RegExp}
-	 */
-	var R_Gecko = /rv[:](\d+(?:\.\w+)*).*?\bgecko[\/]\w+/;
 
 	/**
 	 * @const
@@ -233,7 +227,6 @@ function(html, userAgent) {
 						ua.ie = ua.msie || ua.rv;
 					}
 					delete ua.msie;
-					delete ua.rv;
 
 					if (ua.windows_phone_os) {
 						// standardize window phone
@@ -246,10 +239,13 @@ function(html, userAgent) {
 						delete ua.windows_nt;
 					}
 
-				} else if (R_Gecko.exec(uaStr)) {
-					ua.gecko = RegExp.$1;
+				} else if (ua.gecko || ua.firefox) {
+					ua.gecko = ua.rv;
 				}
 
+				if (ua.rv) {
+					delete ua.rv;
+				}
 				if (ua.version) {
 					delete ua.version;
 				}

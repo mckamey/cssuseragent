@@ -208,6 +208,23 @@ test('IE 11.0, Windows 8.1 (Blue preview)', function() {
 	same(actual, expected, input);
 });
 
+test('IE 11.0, Windows 8.1 (Blue preview w/ .NET)', function() {
+
+	var input = 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko';
+
+	var expected =
+		{
+			windows_nt: "6.3",
+			trident: "7.0",
+			desktop: "windows",
+			ie: "11.0"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('MSPIE 2.0, Windows CE', function() {
 
 	var input = 'Mozilla/1.1 (compatible; MSPIE 2.0; Windows CE)';
@@ -320,6 +337,74 @@ test('Firefox 4.0b7, Windows', function() {
 			gecko: '2.0b7',
 			firefox: '4.0b7',
 			desktop: 'windows'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Firefox 4.0.1, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:2.0.1) Gecko/20100101 Firefox/4.0.1';
+
+	var expected =
+		{
+			gecko: "2.0.1",
+			firefox: "4.0.1",
+			desktop: "macintosh",
+			mac_os_x: "10.8"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Firefox 7.0.1, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:7.0.1) Gecko/20100101 Firefox/7.0.1';
+
+	var expected =
+		{
+			gecko: "7.0.1",
+			firefox: "7.0.1",
+			desktop: "macintosh",
+			mac_os_x: "10.8"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Firefox 15.0.1, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:15.0) Gecko/20100101 Firefox/15.0.1';
+
+	var expected =
+		{
+			gecko: "15.0",
+			firefox: "15.0.1",
+			desktop: "macintosh",
+			mac_os_x: "10.8"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Firefox 21, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) Gecko/20100101 Firefox/21.0';
+
+	var expected =
+		{
+			gecko: "21.0",
+			firefox: "21.0",
+			desktop: "macintosh",
+			mac_os_x: "10.8"
 		};
 
 	var actual = cssua.parse(input);
