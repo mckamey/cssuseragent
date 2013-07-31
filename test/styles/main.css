@@ -25,6 +25,7 @@ body
 	color: #999;
 	font-family: LeagueGothicRegular, 'League Gothic', Helvetica, Tahoma, Arial, sans-serif;
 	font-size: 125px;
+	font-weight: normal;/* http://stackoverflow.com/q/5069752/43217 */
 	margin: 0 auto 0.25em;
 	padding: 0;
 	text-align: center;
