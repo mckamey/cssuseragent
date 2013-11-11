@@ -1,13 +1,11 @@
 /**
-	cssua.js
-	User-agent specific CSS support
-
-	Created: 2006-06-10-1635
-	Modified: 2013-07-29-0009
-
-	Copyright (c)2006-2013 Stephen M. McKamey
-	Distributed under The MIT License.
-*/
+ * CssUserAgent (cssua.js) v2.1.27
+ * http://cssuseragent.org
+ * 
+ * Copyright (c)2006-2013 Stephen M. McKamey.
+ * Licensed under The MIT License.
+ */
+/*jshint smarttabs:true */
 
 /**
  * @type {Object}
