@@ -1,0 +1,25 @@
+{
+  "name": "cssua.js",
+  "version": "2.1.27",
+  "description": "CssUserAgent: user-agent specific CSS support",
+  "main": "cssua.js",
+  "keywords": [
+    "cssua",
+    "cssseragent",
+    "css",
+    "user-agent",
+    "userAgent",
+    "browser",
+    "detection",
+    "styles",
+    "quirks"
+  ],
+  "authors": [
+    "Stephen M. McKamey (http://mck.me)"
+  ],
+  "license": "MIT",
+  "homepage": "http://cssuseragent.org",
+  "ignore": [
+  	"./!(cssua.js)"
+  ]
+}
