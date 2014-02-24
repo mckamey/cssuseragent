@@ -77,4 +77,21 @@ test('Safari 4.0.4, iPad', function() {
 	same(actual, expected, '');
 });
 
+test('iPhone (standalone)', function() {
+
+	var input =
+		{
+			standalone: true,
+			mobile: 'iphone',
+			ios: '7.0.4',
+			webkit: '537.51.1'
+		};
+
+	var expected = 'standalone=true&mobile=iphone&ios=7.0.4&webkit=537.51.1';
+
+	var actual = cssua.encode(input);
+
+	same(actual, expected, '');
+});
+
 }catch(ex){alert(ex);}

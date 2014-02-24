@@ -1,11 +1,11 @@
 /**
- * CssUserAgent (cssua.js) v2.1.27
+ * CssUserAgent (cssua.js) v2.1.28
  * http://cssuseragent.org
  * 
- * Copyright (c)2006-2013 Stephen M. McKamey.
+ * Copyright (c)2006-2014 Stephen M. McKamey.
  * Licensed under The MIT License.
  */
-/*jshint smarttabs:true */
+/*jshint smarttabs:true, regexp:false, browser:true */
 
 /**
  * @type {Object}
@@ -17,10 +17,8 @@ var cssua = (
  * @param userAgent {string} browser userAgent string
  * @return {Object}
  */
-function(html, userAgent) {
+function(html, userAgent, sa) {
 	'use strict';
-
-	/*jslint regexp: false, browser: true */
 
 	/**
 	 * @const
@@ -87,12 +85,15 @@ function(html, userAgent) {
 			 * @param uaStr {string}
 			 * @return {Object}
 			 */
-			function(uaStr) {
+			function(uaStr, sa) {
 
 				/**
 				 * @type {Object}
 				 */
 				var ua = {};
+				if (sa) {
+					ua.standalone = sa;
+				}
 
 				uaStr = (''+uaStr).toLowerCase();
 				if (!uaStr) {
@@ -321,7 +322,7 @@ function(html, userAgent) {
 	 * @const
 	 * @type {Object}
 	 */
-	cssua.userAgent = cssua.ua = cssua.parse(userAgent);
+	cssua.userAgent = cssua.ua = cssua.parse(userAgent, sa);
 
 	/**
 	 * @const
@@ -339,4 +340,4 @@ function(html, userAgent) {
 
 	return cssua;
 
-})(document.documentElement, navigator.userAgent);
+})(document.documentElement, navigator.userAgent, navigator.standalone);
