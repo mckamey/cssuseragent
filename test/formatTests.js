@@ -97,4 +97,21 @@ test('IE 7, WinPhone', function() {
 	same(actual, expected, '');
 });
 
+test('iPhone (standalone)', function() {
+
+	var input =
+		{
+			standalone: true,
+			mobile: 'iphone',
+			ios: '7.0.4',
+			webkit: '537.51.1'
+		};
+
+	var expected = ' ua-standalone ua-mobile ua-mobile-iphone ua-ios ua-ios-7 ua-ios-7-0 ua-ios-7-0-4 ua-webkit ua-webkit-537 ua-webkit-537-51 ua-webkit-537-51-1';
+
+	var actual = cssua.format(input);
+
+	same(actual, expected, '');
+});
+
 }catch(ex){alert(ex);}

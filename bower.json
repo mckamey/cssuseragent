@@ -1,6 +1,6 @@
 {
   "name": "cssua.js",
-  "version": "2.1.27",
+  "version": "2.1.28",
   "description": "CssUserAgent: user-agent specific CSS support",
   "main": "cssua.js",
   "keywords": [

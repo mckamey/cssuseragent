@@ -1601,4 +1601,22 @@ test('PS3', function() {
 	same(actual, expected, input);
 });
 
+test('iPhone (standalone)', function() {
+
+	var inputUA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a (392600352)',
+		inputSA = true;
+
+	var expected =
+		{
+			standalone: true,
+			mobile: 'iphone',
+			ios: '7.0.4',
+			webkit: '537.51.1'
+		};
+
+	var actual = cssua.parse(inputUA, inputSA);
+
+	same(actual, expected, inputUA+' | navigator.standalone=true');
+});
+
 }catch(ex){alert(ex);}
