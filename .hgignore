@@ -10,4 +10,6 @@
 .*\.ai
 .*\.sh
 ga\.js
+antixss\.js
+cssua\.demo\.js
 test/styles/browsers/originals/
