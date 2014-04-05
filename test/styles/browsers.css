@@ -65,14 +65,6 @@
 	height: 128px;
 }
 
-/* Presto-based browsers */
-.ua-opera .browser-info {
-	border-color: #3B4959;
-	border-top-color: #961D1F;
-	border-left-color: #961D1F;
-	background-image: url(browsers/Opera_128.png);
-}
-
 /* WebKit-based browsers */
 .ua-webkit .browser-info {
 	border-color: #2D3494;
@@ -144,6 +136,33 @@
 	border-top-color: #E0E0E6;
 	border-left-color: #E0E0E6;
 	background-image: url(browsers/Konqueror_128.png);
+}
+
+/* Opera & Presto-based browsers */
+.ua-opera .browser-info {
+	border-color: #7C0B15;
+	border-top-color: #D91728;
+	border-left-color: #D91728;
+	background-image: url(browsers/Opera_128.png);
+}
+.ua-opera-1 .browser-info,
+.ua-opera-2 .browser-info,
+.ua-opera-3 .browser-info,
+.ua-opera-4 .browser-info,
+.ua-opera-5 .browser-info,
+.ua-opera-6 .browser-info,
+.ua-opera-7 .browser-info,
+.ua-opera-8 .browser-info,
+.ua-opera-9 .browser-info,
+.ua-opera-10 .browser-info,
+.ua-opera-11 .browser-info,
+.ua-opera-12 .browser-info,
+.ua-opera-13 .browser-info,
+.ua-opera-14 .browser-info {
+	border-color: #3B4959;
+	border-top-color: #961D1F;
+	border-left-color: #961D1F;
+	background-image: url(browsers/Presto_128.png);
 }
 
 /* Gecko-based browsers */
