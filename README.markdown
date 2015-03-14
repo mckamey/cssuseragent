@@ -87,4 +87,4 @@ it just worked.
 Copyright (c) 2006-2013 Stephen M. McKamey
 
   [1]: http://cssuseragent.org
-  [2]: https://bitbucket.org/mckamey/cssuseragent/raw/tip/LICENSE.txt
+  [2]: https://raw.githubusercontent.com/mckamey/cssuseragent/master/LICENSE.txt
