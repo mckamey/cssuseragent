@@ -191,6 +191,23 @@ test('IE 10.0, Windows 2008 R2', function() {
 	same(actual, expected, input);
 });
 
+test('IE 11.0, Windows 7', function() {
+
+	var input = 'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko';
+
+	var expected =
+		{
+			windows_nt: "6.1",
+			trident: "7.0",
+			desktop: "windows",
+			ie: "11.0"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('IE 11.0, Windows 8.1 (Blue preview)', function() {
 
 	var input = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko';
@@ -218,6 +235,39 @@ test('IE 11.0, Windows 8.1 (Blue preview w/ .NET)', function() {
 			trident: "7.0",
 			desktop: "windows",
 			ie: "11.0"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('IE 11.0, Windows 8.1 x64', function() {
+
+	var input = 'Mozilla/5.0 (Windows NT 6.3; Win64, x64; Trident/7.0; Touch; rv:11.0) like Gecko';
+
+	var expected =
+		{
+			windows_nt: "6.3",
+			trident: "7.0",
+			desktop: "windows",
+			ie: "11.0"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Microsoft Edge 12.0, Windows 10', function() {
+
+	var input = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+
+	var expected =
+		{
+			windows_nt: "10.0",
+			edge: "12.0",
+			desktop: "windows"
 		};
 
 	var actual = cssua.parse(input);
@@ -412,6 +462,23 @@ test('Firefox 21, Mac OS X', function() {
 	same(actual, expected, input);
 });
 
+test('Firefox 38, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:38.0) Gecko/20100101 Firefox/38.0';
+
+	var expected =
+		{
+			gecko: '38.0',
+			firefox: '38.0',
+			desktop: 'macintosh',
+			mac_os_x: '10.9'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Chrome 0.2, Windows', function() {
 
 	var input = 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.30 Safari/525.13';
@@ -590,6 +657,23 @@ test('Chrome 10 Dev, Windows', function() {
 			chrome: '10.0.612.3',
 			desktop: 'windows',
 			webkit: '534.15'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Chrome 45, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2424.0 Safari/537.36';
+
+	var expected =
+		{
+			chrome: '45.0.2424.0',
+			desktop: 'macintosh',
+			mac_os_x: '10.9.5',
+			webkit: '537.36'
 		};
 
 	var actual = cssua.parse(input);
@@ -825,6 +909,23 @@ test('Safari 5.0.3, Windows', function() {
 			safari: '5.0.3',
 			desktop: 'windows',
 			webkit: '533.19.4'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Safari 7, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/600.6.3 (KHTML, like Gecko) Version/7.1.6 Safari/537.85.15';
+
+	var expected =
+		{
+			safari: "7.1.6",
+			desktop: "macintosh",
+			mac_os_x: "10.9.5",
+			webkit: "600.6.3"
 		};
 
 	var actual = cssua.parse(input);
@@ -1080,6 +1181,23 @@ test('Opera 14 (Webkit), Windows', function() {
 	same(actual, expected, input);
 });
 
+test('Opera 27 (Webkit), Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.94 Safari/537.36 OPR/27.0.1689.66';
+
+	var expected =
+		{
+			desktop: 'macintosh',
+			mac_os_x: '10.9.5',
+			webkit: '537.36',
+			opera: '27.0.1689.66'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Opera Mini', function() {
 
 	var input = 'Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214/19.916; U; en) Presto/2.5.25';
@@ -1251,6 +1369,25 @@ test('Windows Phone 8.0 (HTC 8X, IE)', function() {
 	same(actual, expected, input);
 });
 
+test('Windows Phone 8.0 (Mobile mode, IE 11)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; rv:11; NOKIA; Lumia 920) like Gecko';
+
+	var expected =
+		{
+			windows_phone: '8.0',
+			trident: '6.0',
+			iemobile: '10.0',
+			lumia: '920',
+			mobile: 'windows phone',
+			ie: '10.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Windows Phone 8.0 (Desktop mode, IE)', function() {
 
 	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; ARM; Touch; WPDesktop)';
@@ -1261,6 +1398,120 @@ test('Windows Phone 8.0 (Desktop mode, IE)', function() {
 			mobile: 'windows desktop',
 			ie: '10.0',
 			windows_phone: '8.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Windows Phone 8.1 (IE 11)', function() {
+
+	var input = 'Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 520)';
+
+	var expected =
+		{
+			windows_phone: '8.1',
+			trident: '7.0',
+			iemobile: '11.0',
+			lumia: '520',
+			mobile: 'mobile',
+			ie: '11.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Windows Phone 10.0 (Microsoft Edge 12)', function() {
+
+	var input = 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; DEVICE INFO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Mobile Safari/537.36 Edge/12.0';
+
+	var expected =
+		{
+			windows_phone: '10.0',
+			edge: '12.0',
+			mobile: 'windows phone'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Xbox 360 (IE 9)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)';
+
+	var expected =
+		{
+			windows_nt: '6.1',
+			trident: '5.0',
+			game: 'xbox',
+			ie: '9.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Xbox One (IE 10)', function() {
+
+	var input = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)';
+
+	var expected =
+		{
+			windows_nt: '6.2',
+			trident: '6.0',
+			game: 'xbox',
+			ie: '10.0'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Nintendo 3DS', function() {
+
+	var input = 'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7455.EU';
+
+	var expected =
+		{
+			game: 'nintendo 3ds',
+			nintendo_3ds: '1.7455.eu'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('Nintendo Wii', function() {
+
+	var input = 'Opera/9.30 (Nintendo Wii; U; ; 3642; en)';
+
+	var expected =
+		{
+			opera: '9.30',
+			game: 'nintendo wii'
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('PS3', function() {
+
+	var input = 'Mozilla/5.0 (PLAYSTATION 3; 1.00)';
+
+	var expected =
+		{
+			playstation: '3',
+			game: 'playstation'
 		};
 
 	var actual = cssua.parse(input);
@@ -1549,51 +1800,6 @@ test('Googlebot-Mobile 2.1', function() {
 			mobile: 'iphone',
 			ios: '4.1',
 			webkit: '532.9'
-		};
-
-	var actual = cssua.parse(input);
-
-	same(actual, expected, input);
-});
-
-test('Nintendo 3DS', function() {
-
-	var input = 'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7455.EU';
-
-	var expected =
-		{
-			game: 'nintendo 3ds',
-			nintendo_3ds: '1.7455.eu'
-		};
-
-	var actual = cssua.parse(input);
-
-	same(actual, expected, input);
-});
-
-test('Nintendo Wii', function() {
-
-	var input = 'Opera/9.30 (Nintendo Wii; U; ; 3642; en)';
-
-	var expected =
-		{
-			opera: '9.30',
-			game: 'nintendo wii'
-		};
-
-	var actual = cssua.parse(input);
-
-	same(actual, expected, input);
-});
-
-test('PS3', function() {
-
-	var input = 'Mozilla/5.0 (PLAYSTATION 3; 1.00)';
-
-	var expected =
-		{
-			playstation: '3',
-			game: 'playstation'
 		};
 
 	var actual = cssua.parse(input);

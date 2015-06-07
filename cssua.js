@@ -1,5 +1,5 @@
 /**
- * CssUserAgent (cssua.js) v2.1.28
+ * CssUserAgent (cssua.js) v2.1.29
  * http://cssuseragent.org
  * 
  * Copyright (c)2006-2014 Stephen M. McKamey.
@@ -146,10 +146,6 @@ function(html, userAgent, sa) {
 						}
 					}
 
-				} else if (R_desktop.exec(uaStr)) {
-					// desktop OS indicators
-					ua.desktop = RegExp.$1;
-
 				} else if (R_game.exec(uaStr)) {
 					// game console indicators
 					ua.game = RegExp.$1;
@@ -158,6 +154,10 @@ function(html, userAgent, sa) {
 					if (ua.version && !ua[game]) {
 						ua[game] = ua.version;
 					}
+
+				} else if (R_desktop.exec(uaStr)) {
+					// desktop OS indicators
+					ua.desktop = RegExp.$1;
 				}
 
 				// platform naming standardizations
@@ -188,6 +188,13 @@ function(html, userAgent, sa) {
 
 				} else if (R_FluidApp.exec(uaStr)) {
 					ua.fluidapp = ua.version;
+				}
+
+				if (ua.edge) {
+					delete ua.applewebkit;
+					delete ua.safari;
+					delete ua.chrome;
+					delete ua.android;
 				}
 
 				if (ua.applewebkit) {
@@ -226,6 +233,7 @@ function(html, userAgent, sa) {
 						ua.ie = ua.msie || ua.rv;
 					}
 					delete ua.msie;
+					delete ua.android;
 
 					if (ua.windows_phone_os) {
 						// standardize window phone
