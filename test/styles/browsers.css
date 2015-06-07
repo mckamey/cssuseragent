@@ -64,6 +64,12 @@
 	background-position: center 40px;
 	height: 128px;
 }
+.ua-edge .browser-info {
+	border-color: #50BEF2;
+	border-top-color: #FFE446;
+	border-left-color: #FFE446;
+	background-image: url(browsers/Edge_128.png);
+}
 
 /* WebKit-based browsers */
 .ua-webkit .browser-info {
