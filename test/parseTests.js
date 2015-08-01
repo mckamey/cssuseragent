@@ -1002,6 +1002,39 @@ test('Silk 2.1, Kindle Fire 2 (desktop, not accelerated)', function() {
 	same(actual, expected, input);
 });
 
+test('Vivaldi 1.0, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.75 Safari/537.36 Vivaldi/1.0.219.53';
+
+	var expected =
+		{
+			vivaldi: "1.0.219.53",
+			desktop: "macintosh",
+			mac_os_x: "10.9.5",
+			webkit: "537.36"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
+test('PhantomJS 1.9.8, Mac OS X', function() {
+
+	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34';
+
+	var expected =
+		{
+			phantomjs: "1.9.8",
+			desktop: "macintosh",
+			webkit: "534.34"
+		}
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('FluidApp 1.4, Mac OS X', function() {
 
 	var input = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/534.56.5 (KHTML, like Gecko) FluidApp Version/1.4 Safari/534.56.5';

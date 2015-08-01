@@ -122,6 +122,12 @@
 	border-left-color: #00CDD7;
 	background-image: url(browsers/PhantomJS_128.png);
 }
+.ua-vivaldi .browser-info {
+	border-color: #D31D27;
+	border-top-color: #F83D45;
+	border-left-color: #F83D45;
+	background-image: url(browsers/Vivaldi_128.png);
+}
 .ua-shiira .browser-info {
 	border-color: #0198C2;
 	border-top-color: #A86FE6;

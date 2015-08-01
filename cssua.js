@@ -1,5 +1,5 @@
 /**
- * CssUserAgent (cssua.js) v2.1.29
+ * CssUserAgent (cssua.js) v2.1.30
  * http://cssuseragent.org
  * 
  * Copyright (c)2006-2014 Stephen M. McKamey.
@@ -210,6 +210,10 @@ function(html, userAgent, sa) {
 					if (ua.safari) {
 						if (ua.chrome || ua.crios || ua.opera || ua.silk || ua.fluidapp || ua.phantomjs || (ua.mobile && !ua.ios)) {
 							delete ua.safari;
+
+							if (ua.vivaldi) {
+								delete ua.chrome;
+							}
 
 						} else if (ua.version && !ua.rim_tablet_os) {
 							ua.safari = ua.version;
