@@ -84,6 +84,11 @@ it just worked.
 
 ----
 
+#### Tested with  
+[![BrowserStack](./test/styles/browsers/BrowserStack_128.png)](http://www.browserstack.com)
+
+----
+
 Copyright (c) 2006-2013 Stephen M. McKamey
 
   [1]: http://cssuseragent.org
