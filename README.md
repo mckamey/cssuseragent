@@ -84,7 +84,7 @@ it just worked.
 
 ----
 
-#### Tested with  
+Tested with   
 [![BrowserStack](./test/styles/browsers/BrowserStack_128.png)](http://www.browserstack.com)
 
 ----
