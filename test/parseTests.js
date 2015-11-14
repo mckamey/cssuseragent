@@ -479,6 +479,23 @@ test('Firefox 38, Mac OS X', function() {
 	same(actual, expected, input);
 });
 
+test('Firefox for iOS, iPhone 6', function() {
+
+	var input = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) FxiOS/1.1 Mobile/13B143 Safari/601.1.46';
+
+	var expected =
+		{
+			fxios: "1.1",
+			mobile: "iphone",
+			ios: "9.1",
+			webkit: "601.1.46"
+		};
+
+	var actual = cssua.parse(input);
+
+	same(actual, expected, input);
+});
+
 test('Chrome 0.2, Windows', function() {
 
 	var input = 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.30 Safari/525.13';

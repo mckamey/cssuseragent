@@ -1,8 +1,8 @@
 /**
- * CssUserAgent (cssua.js) v2.1.30
+ * CssUserAgent (cssua.js) v2.1.31
  * http://cssuseragent.org
  * 
- * Copyright (c)2006-2014 Stephen M. McKamey.
+ * Copyright (c)2006-2015 Stephen M. McKamey.
  * Licensed under The MIT License.
  */
 /*jshint smarttabs:true, regexp:false, browser:true */
@@ -208,7 +208,7 @@ function(html, userAgent, sa) {
 					}
 
 					if (ua.safari) {
-						if (ua.chrome || ua.crios || ua.opera || ua.silk || ua.fluidapp || ua.phantomjs || (ua.mobile && !ua.ios)) {
+						if (ua.chrome || ua.crios || ua.fxios || ua.opera || ua.silk || ua.fluidapp || ua.phantomjs || (ua.mobile && !ua.ios)) {
 							delete ua.safari;
 
 							if (ua.vivaldi) {
