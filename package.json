@@ -1,0 +1,20 @@
+{
+  "name": "cssuseragent",
+  "version": "2.1.31",
+  "description": "Automatically adds UserAgent-specific CSS classes to the document allowing for browser variations without resorting to CSS hacks.",
+  "homepage": "http://cssuseragent.org",
+  "author": "Stephen McKamey (http://mck.me)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mckamey/cssuseragent.git"
+  },
+  "files": [ "cssua.js", "README.md", "LICENSE.txt" ],
+  "main": "cssua.js",
+  "keywords": [
+    "cssuseragent",
+    "cssua",
+    "css",
+    "useragent"
+  ]
+}
