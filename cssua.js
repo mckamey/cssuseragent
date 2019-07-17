@@ -10,7 +10,7 @@
 /**
  * @type {Object}
  */
-module.exports = (
+var cssua = (
 
 /**
  * @param html {Object} root DOM element
@@ -353,3 +353,5 @@ function(html, userAgent, sa) {
 	return cssua;
 
 })(document.documentElement, navigator.userAgent, navigator.standalone);
+
+module.exports = cssua;
