@@ -10,7 +10,7 @@
 /**
  * @type {Object}
  */
-var cssua = (
+module.exports = (
 
 /**
  * @param html {Object} root DOM element
